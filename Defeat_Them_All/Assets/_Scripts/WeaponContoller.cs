@@ -20,17 +20,12 @@ public class WeaponContoller : MonoBehaviour {
     [SerializeField]
     private float firingRate = 0.4f;
 
-    [SerializeField]
-    private AudioClip shootClip;
-
     private GameObject bulletParent;
-    //private SoundController soundController;
 
     // == private methods ==
     private void Start()
     {
         bulletParent = ParentUtils.FindBulletParent();
-        //soundController = SoundController.FindSoundController();
     }
 
     private void Update()
@@ -51,10 +46,6 @@ public class WeaponContoller : MonoBehaviour {
         bullet.transform.position = transform.position;
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.velocity = Vector3.up * bulletSpeed;
-        // add sound
-        /*if (soundController)
-        {
-            soundController.PlayOneShot(shootClip);
-        }*/
+        
     }
 }
