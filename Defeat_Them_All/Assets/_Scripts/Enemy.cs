@@ -31,35 +31,30 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         soundController = SoundController.FindSoundController();
-        PlayClip(spawnClip);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         // need to determine the type of "collision"
         string tagType = gameObject.tag;
-        var bullet = collision.GetComponent<Bullet>();
-        var player = collision.GetComponent<PlayerBehaviour>();
+        //var bullet = collision.GetComponent<Bullet>();
+        //var player = collision.GetComponent<PlayerBehaviour>();
 
-        if(bullet && (tagType == CIRCLE_TAG_TEXT))
+        if(collision.gameObject.tag =="bullet")
         {
             PlayClip(hitClip);
-            Destroy(bullet.gameObject);
+            GameObject.Destroy(gameObject);
             PublishEnemyKilledEvent();
-            Destroy(gameObject);
+            //Destroy(gameObject);
         }
-        else if (player)
+        else if (collision.gameObject.tag == "player")
         {
             PlayClip(crashClip);
+            GameObject.Destroy(gameObject);
             // publish event to the system to notify of hit.
             PublishEnemyKilledEvent();
             // destory the current gameObject
-            Destroy(gameObject);
 
-        }
-        else
-        {
-            Debug.Log("hit something else");
         }
     }
 
