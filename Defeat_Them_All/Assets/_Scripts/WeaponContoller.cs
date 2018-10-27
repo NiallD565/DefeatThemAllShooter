@@ -38,6 +38,12 @@ public class WeaponContoller : MonoBehaviour {
         {
             CancelInvoke(SHOOT_METHOD);
         }
+
+        if (Input.touchCount > 0)
+        {
+            InvokeRepeating(SHOOT_METHOD, 0f, firingRate);
+        }
+
     }
 
     private void Shoot()
