@@ -9,6 +9,12 @@ public class PointSpawner : MonoBehaviour
 {
 
     private const string SPAWN_METHOD = "Spawn";
+    // timed wave controls
+    [SerializeField]
+    private float waveTimer = 30.0f;
+    [SerializeField]
+    private float timeTillWave = 5.0f;
+
     [SerializeField]
     private float spawnDelay = 0.5f;
     [SerializeField]

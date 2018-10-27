@@ -41,7 +41,11 @@ public class WeaponContoller : MonoBehaviour {
 
         if (Input.touchCount > 0)
         {
-            InvokeRepeating(SHOOT_METHOD, 0f, firingRate);
+            Invoke(SHOOT_METHOD, firingRate);
+        }
+        if(Input.touchCount < 0)
+        {
+            CancelInvoke(SHOOT_METHOD);
         }
 
     }
