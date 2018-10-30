@@ -11,7 +11,7 @@ public class PointSpawner : MonoBehaviour
     private const string SPAWN_METHOD = "Spawn";
     // timed wave controls
     [SerializeField]
-    private float waveTimer = 30.0f;
+    private float waveTimer = 10.0f;
     [SerializeField]
     private float timeTillWave = 5.0f;
     [SerializeField]
@@ -65,10 +65,14 @@ public class PointSpawner : MonoBehaviour
 
 
         //var spawnPoint = spawnStack.Pop();
-        Enemy enemy = Instantiate(enemyPrefab, enemyParent.transform.position);
+        GameObject enemy = Instantiate(enemyPrefab, enemyParent.transform.position, transform.rotation);
         enemy.transform.position = transform.position;
         Rigidbody2D rb = enemy.GetComponent<Rigidbody2D>();
         rb.velocity = Vector3.down;
+
+        numEnemy++;
+        spawnedEnemy++;
+        waveSpawn = false;
 
         //var enemy = Instantiate(enemyPrefab);
         // set the position
@@ -76,21 +80,18 @@ public class PointSpawner : MonoBehaviour
 
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
 		// Spawns enemies in waves but based on time.
         // checks if the number of waves is bigger than the total waves
         if (numWaves <= totalWaves)
         {
-            // Increases the timer to allow the timed waves to work
-            timeTillWave += Time.deltaTime;
-            if (waveSpawn)
-            {
-                //spawns an enemy
-                SpawnEnemy();
-            }
+            Debug.Log("Time tll next wave " + timeTillWave);
+           // Increases the timer to allow the timed waves to work
+           timeTillWave += Time.deltaTime;
+            
             // checks if the time is equal to the time required for a new wave
-            if (timeTillWave >= waveTimer)
+            if (waveTimer <= timeTillWave)
             {
                 // enables the wave spawner
                 waveSpawn = true;
@@ -100,6 +101,12 @@ public class PointSpawner : MonoBehaviour
                 numWaves++;
                 // A hack to get it to spawn the same number of enemies regardless of how many have been killed
                 numEnemy = 0;
+            }
+            if (waveSpawn == true)
+            {
+                Debug.Log("Spawnmethod called");
+                //spawns an enemy
+                SpawnEnemy();
             }
         }
     }

@@ -36,7 +36,7 @@ public class PlayerBehaviour : MonoBehaviour
     }
 
     // Update is called once per view frame
-    void Update()
+    /*void Update()
     {
         if (Input.touchCount > 0)
         {
@@ -47,6 +47,7 @@ public class PlayerBehaviour : MonoBehaviour
             {
                 //When a touch has first been detected, change the message and record the starting position
                 case TouchPhase.Began:
+                    Debug.Log("Touchphase began");
                     // Record initial touch position.
                     startPos = touch.position;
                     message = "Begun ";
@@ -67,7 +68,7 @@ public class PlayerBehaviour : MonoBehaviour
         }
         Debug.Log("Touch : " + message + "in direction" + direction);
 
-    }
+    }*/
     // update with the physics engine
     private void FixedUpdate()
     {
@@ -78,16 +79,22 @@ public class PlayerBehaviour : MonoBehaviour
         float vMovement = Input.GetAxis(V_AXIS);
         // get the current body and change the velocity
         // using the horizontal movement * speed value
-        rb.velocity = new Vector2(hMovement * speed,
-                                vMovement * speed);
+
+        if (Input.touchCount > 0)
+        {
+            hMovement = Input.touches[0].deltaPosition.x;
+            vMovement = Input.touches[0].deltaPosition.y;
+        }
+
+        rb.velocity = new Vector3(hMovement * speed, vMovement * speed);
 
         // Mathf.Clamp
         // work out the xValue based on the limits
         float xValue = Mathf.Clamp(rb.position.x, xMin, xMax);
 
-        /*
-         * float xValue = Mathf.Clamp01(rb.position.x);
-         */
+        
+        //float xValue = Mathf.Clamp01(rb.position.x);
+         
         // keep position.x between two values
         rb.position = new Vector2(xValue, rb.position.y);
 

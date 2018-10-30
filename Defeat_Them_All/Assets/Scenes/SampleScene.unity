@@ -242,6 +242,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e2010a1bf6588e41a0d21648a7463d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waveTimer: 10
+  timeTillWave: 5
+  totalWaves: 5
   spawnDelay: 0.5
   spawnInterval: 1.5
   enemyPrefab: {fileID: 1420169677599048, guid: 5090df146eede864bb55f2803b1b29e4,
@@ -360,7 +363,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 114963109904342668, guid: 0fd78d6e9fe8ce44294802da4324f93f,
     type: 2}
   bulletSpeed: 8
-  firingRate: 0.4
+  keyFiringRate: 0.4
+  touchFiringRate: 1.4
 --- !u!1001 &1671601304
 Prefab:
   m_ObjectHideFlags: 0
