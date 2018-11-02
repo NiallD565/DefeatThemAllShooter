@@ -21,7 +21,7 @@ public class WeaponContoller : MonoBehaviour {
     private float keyFiringRate = 0.4f;
 
     [SerializeField]
-    private float touchFiringRate = 1.4f;
+    private float touchFiringRate = 0.4f;
 
     private GameObject bulletParent;
 

@@ -11,11 +11,11 @@ public class PointSpawner : MonoBehaviour
     private const string SPAWN_METHOD = "Spawn";
     // timed wave controls
     [SerializeField]
-    private float waveTimer = 10.0f;
+    private float waveTimer = 4.0f;
     [SerializeField]
-    private float timeTillWave = 5.0f;
+    private float timeTillWave = 3.0f;
     [SerializeField]
-    private int totalWaves = 5;
+    private int totalWaves = 15;
 
     private int numWaves = 0;
     private bool waveSpawn = false;
@@ -68,7 +68,7 @@ public class PointSpawner : MonoBehaviour
         GameObject enemy = Instantiate(enemyPrefab, enemyParent.transform.position, transform.rotation);
         enemy.transform.position = transform.position;
         Rigidbody2D rb = enemy.GetComponent<Rigidbody2D>();
-        rb.velocity = Vector3.down;
+        //rb.velocity = Vector3.down;
 
         numEnemy++;
         spawnedEnemy++;
