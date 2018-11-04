@@ -17,11 +17,11 @@ public class SoundController : MonoBehaviour
     }
 
     // == public methods ==
-    public void PlayOneShot(AudioClip clip)
+    public void PlayOneShot(AudioClip smallShipHit)
     {
-        if (clip)
+        if (smallShipHit)
         {
-            audioSource.PlayOneShot(clip);
+            audioSource.PlayOneShot(smallShipHit);
         }
     }
 

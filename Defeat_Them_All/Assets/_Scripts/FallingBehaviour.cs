@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
 [RequireComponent(typeof(Rigidbody2D))]
 public class FallingBehaviour : MonoBehaviour
 {
@@ -10,7 +9,7 @@ public class FallingBehaviour : MonoBehaviour
     [SerializeField]
     private float speed = 4f;
     [SerializeField]
-    public float acceleration = 100f; //Every second, the speed will increase by this much
+    public float acceleration; //Every second, the speed will increase by this much
 
 
     private Rigidbody2D rb;
@@ -20,20 +19,23 @@ public class FallingBehaviour : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         rb.velocity = Vector2.down * speed;
-
     }
-    private void Update()
+    private void FixedUpdate()
     {
-        speed += Time.deltaTime * acceleration;
+        GameObject SpawnPoint1 = GameObject.Find("SpawnPoint1");
+        PointSpawner pointspawner = SpawnPoint1.GetComponent<PointSpawner>();
+        if (pointspawner.numWaves % 5 != 0)
+        {
+            speed += Time.deltaTime * acceleration;
 
-        rb.velocity = Vector2.down * speed;
+            rb.velocity = Vector2.down * speed;
 
-        Debug.Log("Speed + acceloration is: " + rb.velocity+ " " + speed);
-
+            Debug.Log("Speed + acceloration is: " + rb.velocity);
+        }
     }
-    /* Update is called once per frame
+    // Update is called once per frame
     void Update()
     {
 
-    }*/
+    }
 }

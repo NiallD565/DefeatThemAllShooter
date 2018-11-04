@@ -8,6 +8,7 @@ public class GameController : MonoBehaviour
 
     // == fields ==
     private int playerScore = 0;
+    private int enemiesKilled = 0;
 
 
     // subscribe to events here
@@ -22,6 +23,7 @@ public class GameController : MonoBehaviour
 
     private void HandleEnemyKilledEvent(Enemy enemy)
     {
+        enemiesKilled++;
         playerScore += enemy.ScoreValue;
         Debug.Log("Score: " + playerScore);
     }

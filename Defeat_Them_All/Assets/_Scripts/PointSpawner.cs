@@ -17,9 +17,8 @@ public class PointSpawner : MonoBehaviour
     [SerializeField]
     private int totalWaves = 15;
 
-    private int numWaves = 0;
+    public int numWaves = 0;
     private bool waveSpawn = false;
-    private int numEnemy = 0;
     private int spawnedEnemy = 0;
 
     private GameObject enemyParent;
@@ -68,9 +67,7 @@ public class PointSpawner : MonoBehaviour
         GameObject enemy = Instantiate(enemyPrefab, enemyParent.transform.position, transform.rotation);
         enemy.transform.position = transform.position;
         Rigidbody2D rb = enemy.GetComponent<Rigidbody2D>();
-        //rb.velocity = Vector3.down;
 
-        numEnemy++;
         spawnedEnemy++;
         waveSpawn = false;
 
@@ -99,8 +96,6 @@ public class PointSpawner : MonoBehaviour
                 timeTillWave = 0.0f;
                 // increases the number of waves
                 numWaves++;
-                // A hack to get it to spawn the same number of enemies regardless of how many have been killed
-                numEnemy = 0;
             }
             if (waveSpawn == true)
             {
