@@ -21,7 +21,7 @@ public class WeaponContoller : MonoBehaviour {
     private float keyFiringRate = 0.4f;
 
     [SerializeField]
-    private float touchFiringRate = 0.4f;
+    private float touchFiringRate = 0.1f;
 
     private GameObject bulletParent;
 
@@ -44,7 +44,7 @@ public class WeaponContoller : MonoBehaviour {
 
         if (Input.touchCount > 0)
         {
-            Invoke(SHOOT_METHOD, touchFiringRate);
+            InvokeRepeating(SHOOT_METHOD, 0f, touchFiringRate);
         }
         if(Input.touchCount < 0)
         {
