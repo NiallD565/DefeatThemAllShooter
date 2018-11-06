@@ -47,15 +47,7 @@ public class Enemy : MonoBehaviour
             PublishEnemyKilledEvent();
             //Destroy(gameObject);
         }
-        else if (collision.gameObject.tag == "player")
-        {
-            PlayClip(crashClip);
-            GameObject.Destroy(gameObject);
-            // publish event to the system to notify of hit.
-            PublishEnemyKilledEvent();
-            // destory the current gameObject
-
-        }
+        
     }
 
     private void PlayClip(AudioClip clip)

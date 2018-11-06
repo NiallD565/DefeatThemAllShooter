@@ -17,6 +17,17 @@ public class PlayerBehaviour : MonoBehaviour
     //public Text m_Text;
     //string message;
 
+    [SerializeField]
+    private AudioClip crashClip;
+
+    private SoundController soundController;
+
+    // PlayerKilledEvent handlers
+    public delegate void PlayerKilled(PlayerBehaviour player);
+
+    // static event
+    public static PlayerKilled PlayerKilledEvent;
+
     // fields
     // make available in the unity to test
     [SerializeField]
@@ -103,5 +114,30 @@ public class PlayerBehaviour : MonoBehaviour
 
         // keep position.x and position.y between two values
         rb.position = new Vector2(xValue, yValue);        
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        // need to determine the type of "collision"
+        string tagType = gameObject.tag;
+
+        if (collision.gameObject.tag == "enemy")
+        {
+            //PlayClip(crashClip);
+            GameObject.Destroy(Player);
+            // publish event to the system to notify of hit.
+            PublishPlayerKilledEvent();
+            // destory the current gameObject
+
+        }
+    }
+
+    private void PublishPlayerKilledEvent()
+    {
+        if (PlayerKilledEvent != null)
+        {
+            PlayerKilledEvent(this);
+        }
+
     }
 }
