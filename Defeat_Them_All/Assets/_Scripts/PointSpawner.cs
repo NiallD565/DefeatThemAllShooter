@@ -83,7 +83,7 @@ public class PointSpawner : MonoBehaviour
         // checks if the number of waves is bigger than the total waves
         if (numWaves <= totalWaves)
         {
-            Debug.Log("Time tll next wave " + timeTillWave);
+           //Debug.Log("Time tll next wave " + timeTillWave);
            // Increases the timer to allow the timed waves to work
            timeTillWave += Time.deltaTime;
             
@@ -99,7 +99,7 @@ public class PointSpawner : MonoBehaviour
             }
             if (waveSpawn == true)
             {
-                Debug.Log("Spawnmethod called");
+                //Debug.Log("Spawnmethod called");
                 //spawns an enemy
                 SpawnEnemy();
             }

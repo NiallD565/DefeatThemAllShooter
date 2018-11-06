@@ -11,20 +11,26 @@ public class PlayerBehaviour : MonoBehaviour
     private const string H_AXIS = "Horizontal";
     private const string V_AXIS = "Vertical";
 
-    public Vector2 startPos;
-    public Vector2 direction;
+    //public Vector2 startPos;
+    //public Vector2 direction;
 
-    public Text m_Text;
-    string message;
+    //public Text m_Text;
+    //string message;
 
     // fields
     // make available in the unity to test
     [SerializeField]
-    private float speed = 0.5f;
+    private float touchSpeed = 0.5f;
+    [SerializeField]
+    private float keySpeed = 15f;
     [SerializeField]
     private float xMin = -2.7f;
     [SerializeField]
     private float xMax = 2.7f;
+    [SerializeField]
+    private float yMin = -4.5f;
+    [SerializeField]
+    private float yMax = 4f;
 
 
     private Rigidbody2D rb;
@@ -72,37 +78,30 @@ public class PlayerBehaviour : MonoBehaviour
     // update with the physics engine
     private void FixedUpdate()
     {
-        //        Input.GetKey(KeyCode.UpArrow )
-
         // get movement on the axes
         float hMovement = Input.GetAxis(H_AXIS);
         float vMovement = Input.GetAxis(V_AXIS);
         // get the current body and change the velocity
         // using the horizontal movement * speed value
 
+        if (Input.touchCount > 0)//Update the Text on the screen depending on current TouchPhase, and the current direction vector
 
-
-        if (Input.touchCount > 0)
         {
             hMovement = Input.touches[0].deltaPosition.x;
             vMovement = Input.touches[0].deltaPosition.y;
+            rb.velocity = new Vector2(hMovement * touchSpeed, vMovement * touchSpeed);
+
         }
-
-        rb.velocity = new Vector2(hMovement * speed, vMovement * speed);
-
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
+        {
+            rb.velocity = new Vector2(hMovement * keySpeed, vMovement * keySpeed);
+        }
         // Mathf.Clamp
         // work out the xValue based on the limits
         float xValue = Mathf.Clamp(rb.position.x, xMin, xMax);
+        float yValue = Mathf.Clamp(rb.position.y, yMin, yMax);
 
-        
-        //float xValue = Mathf.Clamp01(rb.position.x);
-         
-        // keep position.x between two values
-        rb.position = new Vector2(xValue, rb.position.y);
-
-        //Update the Text on the screen depending on current TouchPhase, and the current direction vector
-
-        // Track a single touch as a direction control.
-        
+        // keep position.x and position.y between two values
+        rb.position = new Vector2(xValue, yValue);        
     }
 }

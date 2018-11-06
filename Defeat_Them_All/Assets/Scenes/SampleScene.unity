@@ -309,30 +309,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d05738f467cbe848a30b510e99cae55, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &439602989 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1293758989515582, guid: 0d05738f467cbe848a30b510e99cae55,
-    type: 2}
-  m_PrefabInternal: {fileID: 1671601304}
---- !u!114 &439602991
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 439602989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e2010a1bf6588e41a0d21648a7463d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waveTimer: 4
-  timeTillWave: 3
-  totalWaves: 15
-  numWaves: 0
-  spawnDelay: 0.5
-  spawnInterval: 0.5
-  enemyPrefab: {fileID: 1420169677599048, guid: 5090df146eede864bb55f2803b1b29e4,
-    type: 2}
 --- !u!1 &459708990
 GameObject:
   m_ObjectHideFlags: 0
@@ -355,7 +331,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 459708990}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0e2010a1bf6588e41a0d21648a7463d7, type: 3}
   m_Name: 
@@ -525,54 +501,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &928581921 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1293758989515582, guid: 0d05738f467cbe848a30b510e99cae55,
-    type: 2}
-  m_PrefabInternal: {fileID: 2103645980}
---- !u!114 &928581923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 928581921}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e2010a1bf6588e41a0d21648a7463d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waveTimer: 4
-  timeTillWave: 3
-  totalWaves: 15
-  numWaves: 0
-  spawnDelay: 0.5
-  spawnInterval: 0.5
-  enemyPrefab: {fileID: 1420169677599048, guid: 5090df146eede864bb55f2803b1b29e4,
-    type: 2}
---- !u!1 &938885087 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1293758989515582, guid: 0d05738f467cbe848a30b510e99cae55,
-    type: 2}
-  m_PrefabInternal: {fileID: 14491539}
---- !u!114 &938885089
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 938885087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e2010a1bf6588e41a0d21648a7463d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waveTimer: 4
-  timeTillWave: 3
-  totalWaves: 15
-  numWaves: 0
-  spawnDelay: 0.5
-  spawnInterval: 0.5
-  enemyPrefab: {fileID: 1420169677599048, guid: 5090df146eede864bb55f2803b1b29e4,
-    type: 2}
 --- !u!1 &1494830587 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1713799388283630, guid: 1bf4c3d8bf99160488651b7f8fdc6d0e,
@@ -594,30 +522,6 @@ MonoBehaviour:
   bulletSpeed: 8
   keyFiringRate: 0.4
   touchFiringRate: 0.1
---- !u!1 &1636219664 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1293758989515582, guid: 0d05738f467cbe848a30b510e99cae55,
-    type: 2}
-  m_PrefabInternal: {fileID: 1748902227}
---- !u!114 &1636219666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1636219664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e2010a1bf6588e41a0d21648a7463d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waveTimer: 4
-  timeTillWave: 3
-  totalWaves: 15
-  numWaves: 0
-  spawnDelay: 0.5
-  spawnInterval: 0.5
-  enemyPrefab: {fileID: 1420169677599048, guid: 5090df146eede864bb55f2803b1b29e4,
-    type: 2}
 --- !u!1001 &1671601304
 Prefab:
   m_ObjectHideFlags: 0
@@ -664,30 +568,6 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d05738f467cbe848a30b510e99cae55, type: 2}
   m_IsPrefabAsset: 0
---- !u!1 &1677481611 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1293758989515582, guid: 0d05738f467cbe848a30b510e99cae55,
-    type: 2}
-  m_PrefabInternal: {fileID: 426807639}
---- !u!114 &1677481613
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1677481611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e2010a1bf6588e41a0d21648a7463d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waveTimer: 4
-  timeTillWave: 3
-  totalWaves: 15
-  numWaves: 0
-  spawnDelay: 0.5
-  spawnInterval: 0.5
-  enemyPrefab: {fileID: 1420169677599048, guid: 5090df146eede864bb55f2803b1b29e4,
-    type: 2}
 --- !u!4 &1744589197 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4740221360318714, guid: 0d05738f467cbe848a30b510e99cae55,
@@ -914,6 +794,11 @@ Prefab:
     - target: {fileID: 114670738894641324, guid: 1bf4c3d8bf99160488651b7f8fdc6d0e,
         type: 2}
       propertyPath: speed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 114670738894641324, guid: 1bf4c3d8bf99160488651b7f8fdc6d0e,
+        type: 2}
+      propertyPath: keySpeed
       value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
