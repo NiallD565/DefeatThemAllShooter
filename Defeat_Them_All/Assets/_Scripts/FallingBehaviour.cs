@@ -22,8 +22,8 @@ public class FallingBehaviour : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        GameObject SpawnPoint1 = GameObject.Find("SpawnPoint1");
-        PointSpawner pointspawner = SpawnPoint1.GetComponent<PointSpawner>();
+        GameObject PointSpawners = GameObject.Find("PointSpawners");
+        PointSpawner pointspawner = PointSpawners.GetComponent<PointSpawner>();
         if (pointspawner.numWaves % 5 != 0)
         {
             speed += Time.deltaTime * acceleration;

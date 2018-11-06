@@ -124,7 +124,7 @@ public class PlayerBehaviour : MonoBehaviour
         if (collision.gameObject.tag == "enemy")
         {
             //PlayClip(crashClip);
-            GameObject.Destroy(Player);
+            //GameObject.Destroy(Player);
             // publish event to the system to notify of hit.
             PublishPlayerKilledEvent();
             // destory the current gameObject

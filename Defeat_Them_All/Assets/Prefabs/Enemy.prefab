@@ -92,7 +92,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreValue: 10
   hitClip: {fileID: 0}
-  crashClip: {fileID: 0}
+  crashClip: {fileID: 8300000, guid: 0d6377a1a40442945ae584125efd4cea, type: 3}
 --- !u!114 &114204547896409932
 MonoBehaviour:
   m_ObjectHideFlags: 1
