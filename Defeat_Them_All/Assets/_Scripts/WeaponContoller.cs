@@ -10,6 +10,7 @@ public class WeaponContoller : MonoBehaviour {
 
     // == constants ==
     private const string SHOOT_METHOD = "Shoot";
+    private bool isShooting = false;
 
     [SerializeField]
     private Bullet bulletPrefab;
@@ -19,9 +20,6 @@ public class WeaponContoller : MonoBehaviour {
 
     [SerializeField]
     private float keyFiringRate = 0.4f;
-
-    [SerializeField]
-    private float touchFiringRate = 0.1f;
 
     private GameObject bulletParent;
 
@@ -42,9 +40,10 @@ public class WeaponContoller : MonoBehaviour {
             CancelInvoke(SHOOT_METHOD);
         }
 
-        if (Input.touchCount > 0)
+        if (Input.touchCount > 0 && !isShooting)
         {
-            Invoke(SHOOT_METHOD, keyFiringRate);
+            isShooting = true;
+            Invoke(SHOOT_METHOD, 0.20f);
         }
         if(Input.touchCount < 0)
         {
@@ -59,6 +58,6 @@ public class WeaponContoller : MonoBehaviour {
         bullet.transform.position = transform.position;
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.velocity = Vector3.up * bulletSpeed;
-        
+        isShooting = false;
     }
 }

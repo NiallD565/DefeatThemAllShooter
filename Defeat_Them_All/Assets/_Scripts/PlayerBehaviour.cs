@@ -31,7 +31,7 @@ public class PlayerBehaviour : MonoBehaviour
     // fields
     // make available in the unity to test
     [SerializeField]
-    private float touchSpeed = 0.5f;
+    private float touchSpeed = 0.4f;
     [SerializeField]
     private float keySpeed = 15f;
     [SerializeField]
@@ -100,7 +100,7 @@ public class PlayerBehaviour : MonoBehaviour
         {
             hMovement = Input.touches[0].deltaPosition.x;
             vMovement = Input.touches[0].deltaPosition.y;
-            rb.position = new Vector2(hMovement * touchSpeed, vMovement * touchSpeed);
+            rb.velocity = new Vector2(hMovement * touchSpeed, vMovement * touchSpeed);
 
         }
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
