@@ -23,11 +23,6 @@ public class PointSpawner : MonoBehaviour
 
     private GameObject enemyParent;
 
-
-    [SerializeField]
-    private float spawnDelay = 0.5f;
-    [SerializeField]
-    private float spawnInterval = 0.5f;
     [SerializeField]
     private GameObject enemyPrefab; // type to spawn
     //private Enemy enemyPrefab;
@@ -66,7 +61,6 @@ public class PointSpawner : MonoBehaviour
         //var spawnPoint = spawnStack.Pop();
         GameObject enemy = Instantiate(enemyPrefab, enemyParent.transform.position, transform.rotation);
         enemy.transform.position = transform.position;
-        Rigidbody2D rb = enemy.GetComponent<Rigidbody2D>();
 
         spawnedEnemy++;
         waveSpawn = false;

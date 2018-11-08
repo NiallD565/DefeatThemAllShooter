@@ -100,7 +100,7 @@ public class PlayerBehaviour : MonoBehaviour
         {
             hMovement = Input.touches[0].deltaPosition.x;
             vMovement = Input.touches[0].deltaPosition.y;
-            rb.velocity = new Vector2(hMovement * touchSpeed, vMovement * touchSpeed);
+            rb.position = new Vector2(hMovement * touchSpeed, vMovement * touchSpeed);
 
         }
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow))
