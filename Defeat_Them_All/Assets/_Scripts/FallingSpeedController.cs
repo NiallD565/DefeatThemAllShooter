@@ -21,6 +21,8 @@ public class FallingSpeedController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (isFalling)
+        {
             Invoke(FALLING_SPEED_METHOD, 0.2f);
         }
 	}
