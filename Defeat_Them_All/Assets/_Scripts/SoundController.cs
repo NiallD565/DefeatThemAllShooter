@@ -5,7 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(AudioSource))]
 public class SoundController : MonoBehaviour
 {
-
     // == fields ==
     private AudioSource audioSource;
 
@@ -17,11 +16,11 @@ public class SoundController : MonoBehaviour
     }
 
     // == public methods ==
-    public void PlayOneShot(AudioClip smallShipHit)
+    public void PlayOneShot(AudioClip clip)
     {
-        if (smallShipHit)
+        if (clip)
         {
-            audioSource.PlayOneShot(smallShipHit);
+            audioSource.PlayOneShot(clip);
         }
     }
 

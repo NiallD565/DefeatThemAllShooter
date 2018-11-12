@@ -579,6 +579,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 82556282145494482, guid: c573701eefed7e14dbbd4c12fe4a6728,
+        type: 2}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c573701eefed7e14dbbd4c12fe4a6728, type: 2}
   m_IsPrefabAsset: 0
@@ -631,7 +636,6 @@ MonoBehaviour:
     type: 2}
   bulletSpeed: 8
   keyFiringRate: 0.4
-  touchFiringRate: 0.1
 --- !u!1001 &1671601304
 Prefab:
   m_ObjectHideFlags: 0

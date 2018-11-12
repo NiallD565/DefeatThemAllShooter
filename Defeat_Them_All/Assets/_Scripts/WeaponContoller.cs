@@ -43,7 +43,7 @@ public class WeaponContoller : MonoBehaviour {
         if (Input.touchCount > 0 && !isShooting)
         {
             isShooting = true;
-            Invoke(SHOOT_METHOD, 0.20f);
+            Invoke(SHOOT_METHOD, 0.2f);
         }
         if(Input.touchCount < 0)
         {

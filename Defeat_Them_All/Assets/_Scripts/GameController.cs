@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour
 {
 
     // == fields ==
-    private int playerScore = 0;
+    public int playerScore = 0;
     private int enemiesKilled = 0;
     [SerializeField]
     private Text scoreText; // update in private method
