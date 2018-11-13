@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class PlayerBehaviour : MonoBehaviour
 {
+    public GameObject GameOverPanel; //holds the user interface
 
     // constants
     private const string H_AXIS = "Horizontal";
@@ -123,12 +124,11 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (collision.gameObject.tag == "enemy")
         {
-            //PlayClip(crashClip);
-            //GameObject.Destroy(Player);
-            // publish event to the system to notify of hit.
-            PublishPlayerKilledEvent();
-            // destory the current gameObject
-
+            Debug.Log("teest");
+            //PlayClip(crashClip);        
+            Debug.Log("GameEnded");
+            GameOverPanel.SetActive(true);
+            Time.timeScale = 0.0f;// stopping time
         }
     }
 
@@ -140,4 +140,5 @@ public class PlayerBehaviour : MonoBehaviour
         }
 
     }
+
 }
