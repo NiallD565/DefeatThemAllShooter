@@ -23,6 +23,7 @@ public class EndGame : MonoBehaviour {
         Debug.Log("GameEnded");
         PauseMenuPanel.SetActive(false);
         GameOverPanel.SetActive(true);
+        Time.timeScale = 0.0f;// stopping time
 
     }
 }
