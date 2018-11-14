@@ -1,11 +1,19 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utilities;
 
 public class Coin : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+
+    // EnemyKilledEvent handlers
+    public delegate void coinsCollected(Coin coin);
+
+    // static event
+    public static coinsCollected coinsCollectedEvent;
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -20,10 +28,21 @@ public class Coin : MonoBehaviour {
         if (collision.gameObject.tag == "player")
         {
             GameObject.Destroy(gameObject);
+            PublishCoinCollectedEvent();
         }
         else if (collision.gameObject.tag == "bullet")
         {
-            Physics.IgnoreCollision(collision.collider, collider); 
+
         }
     }
+
+    private void PublishCoinCollectedEvent()
+    {
+        Debug.Log("Coin collected published");
+        if (coinsCollectedEvent != null)
+        {
+            coinsCollectedEvent(this);
+        }
+    }
+    
 }

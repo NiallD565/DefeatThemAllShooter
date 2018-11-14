@@ -11,12 +11,18 @@ public class GameController : MonoBehaviour
     // == fields ==
     public int playerScore = 0;
     public int enemiesKilled = 0;
+    public int coinsCollected = 0;
+
     [SerializeField]
     private Text scoreText; // update in private method
     [SerializeField]
     private Text scoreResultText; // update in private method
     [SerializeField]
     private Text enemiesKilledText; // update in private method
+    [SerializeField]
+    private Text coinsCollectedText;// update in private method
+    [SerializeField]
+    private Text coinsResultText;// update in private method
 
     // Use this for initialization
     void Start()
@@ -29,10 +35,13 @@ public class GameController : MonoBehaviour
     private void OnEnable()
     {
         Enemy.EnemyKilledEvent += HandleEnemyKilledEvent;
+        Coin.coinsCollectedEvent += HandleCoinCollectedEvent;
     }
     private void OnDisable()
     {
         Enemy.EnemyKilledEvent -= HandleEnemyKilledEvent;
+        Coin.coinsCollectedEvent -= HandleCoinCollectedEvent;
+
     }
 
     private void HandleEnemyKilledEvent(Enemy enemy)
@@ -42,7 +51,13 @@ public class GameController : MonoBehaviour
         //Debug.Log("Score: " + playerScore);
         UpdateScoreText();
         UpdateEnemiesKilled();
+            
+    }
 
+    private void HandleCoinCollectedEvent(Coin coin)
+    {
+        coinsCollected++;
+        UpdateCoinsCollected();
     }
     private void UpdateScoreText()
     {
@@ -53,5 +68,10 @@ public class GameController : MonoBehaviour
     private void UpdateEnemiesKilled()
     {
         enemiesKilledText.text = enemiesKilled.ToString("Defeated: 0");
+    }
+    private void UpdateCoinsCollected()
+    {
+        coinsCollectedText.text = coinsCollected.ToString("0");
+        //coinsResultText.text = coinsCollected.ToString("Coins: 0");
     }
 }
