@@ -51,42 +51,10 @@ public class PlayerBehaviour : MonoBehaviour
     {
         // get the current object
         rb = GetComponent<Rigidbody2D>();
+        soundController = SoundController.FindSoundController();
+
     }
 
-    // Update is called once per view frame
-    /*void Update()
-    {
-        if (Input.touchCount > 0)
-        {
-            Touch touch = Input.GetTouch(0);
-
-            // Handle finger movements based on TouchPhase
-            switch (touch.phase)
-            {
-                //When a touch has first been detected, change the message and record the starting position
-                case TouchPhase.Began:
-                    Debug.Log("Touchphase began");
-                    // Record initial touch position.
-                    startPos = touch.position;
-                    message = "Begun ";
-                    break;
-
-                //Determine if the touch is a moving touch
-                case TouchPhase.Moved:
-                    // Determine direction by comparing the current touch position with the initial one
-                    direction = touch.position - startPos;
-                    message = "Moving ";
-                    break;
-
-                case TouchPhase.Ended:
-                    // Report that the touch has ended when it ends
-                    message = "Ending ";
-                    break;
-            }
-        }
-        Debug.Log("Touch : " + message + "in direction" + direction);
-
-    }*/
     // update with the physics engine
     private void FixedUpdate()
     {
@@ -124,7 +92,10 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (collision.gameObject.tag == "enemy")
         {
-            //PlayClip(crashClip);        
+            if (soundController)
+            {
+                soundController.PlayOneShot(crashClip);
+            }
             Debug.Log("GameEnded");
             GameOverPanel.SetActive(true);
             Time.timeScale = 0.0f;// stopping time

@@ -9,9 +9,9 @@ public class GameController : MonoBehaviour
 {
 
     // == fields ==
-    public int playerScore = 0;
-    public int enemiesKilled = 0;
-    public int coinsCollected = 0;
+    private int playerScore = 0;
+    private int enemiesKilled = 0;
+    private int coinsCollected = 0;
 
     [SerializeField]
     private Text scoreText; // update in private method
@@ -72,6 +72,6 @@ public class GameController : MonoBehaviour
     private void UpdateCoinsCollected()
     {
         coinsCollectedText.text = coinsCollected.ToString("0");
-        //coinsResultText.text = coinsCollected.ToString("Coins: 0");
+        coinsResultText.text = coinsCollected.ToString("Coins: 0");
     }
 }
