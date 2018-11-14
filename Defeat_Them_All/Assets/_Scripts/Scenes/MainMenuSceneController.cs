@@ -34,5 +34,11 @@ namespace Scenes
         {
             SceneManager.LoadSceneAsync(SceneNames.AUDIO_MENU);
         }
+        
+        public void QuitOnClick()
+        {
+            Debug.Log("Quit Application");
+            Application.Quit();
+        }
     }
 }
