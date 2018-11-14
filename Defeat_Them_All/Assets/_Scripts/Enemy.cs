@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utilities;
 
 public class Enemy : MonoBehaviour
 {
@@ -15,6 +16,12 @@ public class Enemy : MonoBehaviour
 
     [SerializeField]
     private AudioClip crashClip;
+
+    [SerializeField]
+    private Coin coinPrefab;
+
+    private GameObject coinParent;
+
 
     private SoundController soundController;
 
@@ -31,6 +38,8 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         soundController = SoundController.FindSoundController();
+        coinParent = ParentUtils.FindCoinParent();
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -46,6 +55,7 @@ public class Enemy : MonoBehaviour
             GameObject.Destroy(gameObject);
             PublishEnemyKilledEvent();
             //Destroy(gameObject);
+            SpawnCoin();
         }
         
     }
@@ -66,4 +76,13 @@ public class Enemy : MonoBehaviour
         }
 
     }
+
+    private void SpawnCoin()
+    {
+        Coin coin = Instantiate(coinPrefab, coinParent.transform);
+        coin.transform.position = transform.position;
+        Rigidbody2D rb = coin.GetComponent<Rigidbody2D>();
+
+    }
+
 }

@@ -124,7 +124,6 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (collision.gameObject.tag == "enemy")
         {
-            Debug.Log("teest");
             //PlayClip(crashClip);        
             Debug.Log("GameEnded");
             GameOverPanel.SetActive(true);

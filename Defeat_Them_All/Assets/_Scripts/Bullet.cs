@@ -6,8 +6,6 @@ public class Bullet : MonoBehaviour {
     void Update()
     {
         Invoke("Destroy", 2);
-       
-
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -16,6 +14,6 @@ public class Bullet : MonoBehaviour {
     private void Destroy()
     {
         GameObject.Destroy(gameObject);
-        Debug.Log("bullet Destroyed");
+        //Debug.Log("bullet Destroyed");
     }
 }

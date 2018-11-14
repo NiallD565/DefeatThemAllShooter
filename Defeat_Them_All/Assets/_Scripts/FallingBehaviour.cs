@@ -9,7 +9,7 @@ public class FallingBehaviour : MonoBehaviour
     [SerializeField]
     private float speed = 4f;
     [SerializeField]
-    public float acceleration; //Every second, the speed will increase by this much
+    public float acceleration = 1f; //Every 500 points, the speed will increase by this much
 
 
     private Rigidbody2D rb;

@@ -11,6 +11,7 @@ namespace Utilities
         public const string BULLET_PARENT_NAME = "Bullets";
         public const string SPAWN_METHOD = "Spawn";
         public const string ENEMY_PARENT_NAME = "Enemies";
+        public const string COIN_SPAWN_METHOD = "SpawnCoin";
 
         public static GameObject FindEnemyParent()
         {
@@ -32,7 +33,10 @@ namespace Utilities
             return requiredParent;
         }
 
-
+        public static GameObject FindCoinParent()
+        {
+            return FindRequiredParent(COIN_SPAWN_METHOD);
+        }
 
     }
 }
