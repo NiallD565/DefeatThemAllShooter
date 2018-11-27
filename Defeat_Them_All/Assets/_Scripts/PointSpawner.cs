@@ -51,14 +51,6 @@ public class PointSpawner : MonoBehaviour
     */
     private void SpawnEnemy()
     {
-        // take spawn point from stack
-        // if the stack is empty, then reshuffle 
-
-        // reshuffle
-        //spawnStack = ListUtility.CreateShuffledStack(spawnPoints);
-
-
-        //var spawnPoint = spawnStack.Pop();
         GameObject enemy = Instantiate(enemyPrefab, enemyParent.transform.position, transform.rotation);
         enemy.transform.position = transform.position;
 

@@ -85,4 +85,15 @@ public class Enemy : MonoBehaviour
 
     }
 
+    void Update()
+    {
+        Invoke("DestroyAfterTime", 2);
+    }
+
+    private void DestroyAfterTime()
+    {
+        GameObject.Destroy(gameObject);
+        //Debug.Log("bullet Destroyed");
+    }
+
 }
