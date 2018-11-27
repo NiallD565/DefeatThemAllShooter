@@ -327,6 +327,10 @@ Prefab:
       propertyPath: m_audioClip
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1869144098498996, guid: c573701eefed7e14dbbd4c12fe4a6728, type: 2}
+      propertyPath: m_Name
+      value: EffectsSoundController
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c573701eefed7e14dbbd4c12fe4a6728, type: 2}
   m_IsPrefabAsset: 0

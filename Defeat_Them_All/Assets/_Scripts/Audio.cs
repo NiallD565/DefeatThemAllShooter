@@ -3,12 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Audio : MonoBehaviour {
+    public bool volumeOn = true;
 
-    bool isMute;
-
-    public void Mute()
+    void Start()
     {
-        isMute = !isMute;
-        AudioListener.volume = isMute ? 0 : 1;
+        //audio = GetComponent<AudioSource>();
+    }
+
+    public void muteOnClick()
+    {
+        if (volumeOn == true)
+        {
+            AudioListener.pause = true;
+            Debug.Log("Audio Disabled");
+            volumeOn = false;
+
+        }
+        else if (volumeOn == false)
+        {
+            AudioListener.pause = false;
+            Debug.Log("Audio Enabled");
+            volumeOn = true;
+        }
     }
 }

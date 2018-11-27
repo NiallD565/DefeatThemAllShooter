@@ -30,11 +30,6 @@ namespace Scenes
             SceneManager.LoadSceneAsync(SceneNames.CHARACTER_SELECT);
         }
 
-        public void AudioOnClick()
-        {
-            SceneManager.LoadSceneAsync(SceneNames.AUDIO_MENU);
-        }
-        
         public void QuitOnClick()
         {
             //Debug.Log("Quit Application");
