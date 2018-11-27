@@ -37,7 +37,7 @@ namespace Scenes
         
         public void QuitOnClick()
         {
-            Debug.Log("Quit Application");
+            //Debug.Log("Quit Application");
             Application.Quit();
         }
     }

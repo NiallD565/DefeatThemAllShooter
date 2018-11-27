@@ -81,7 +81,7 @@ public class Enemy : MonoBehaviour
     {
         Coin coin = Instantiate(coinPrefab, coinParent.transform);
         coin.transform.position = transform.position;
-        Rigidbody2D rb = coin.GetComponent<Rigidbody2D>();
+        //Rigidbody2D rb = coin.GetComponent<Rigidbody2D>();
 
     }
 

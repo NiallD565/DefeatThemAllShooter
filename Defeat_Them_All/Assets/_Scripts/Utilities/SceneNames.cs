@@ -11,6 +11,6 @@ namespace Utilities
         public const string OPTIONS_MENU = "Options";
         public const string CHARACTER_SELECT = "CharacterSelect";
         public const string AUDIO_MENU = "Audio";
-        //public const string 
+        public const string SPLASH_SCREEN = "SplashScreen";
     }
 }

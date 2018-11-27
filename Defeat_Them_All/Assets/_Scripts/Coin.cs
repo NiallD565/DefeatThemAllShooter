@@ -12,13 +12,14 @@ public class Coin : MonoBehaviour {
 
     // static event
     public static coinsCollected coinsCollectedEvent;
+
     // Use this for initialization
     void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    }
+
+    // Update is called once per frame
+    void Update () {
 		
 	}
     private void OnCollisionEnter2D(Collision2D collision)
