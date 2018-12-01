@@ -516,8 +516,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveTimer: 4
   timeTillWave: 3
-  totalWaves: 15
-  numWaves: 0
   enemyPrefab: {fileID: 1420169677599048, guid: 5090df146eede864bb55f2803b1b29e4,
     type: 2}
 --- !u!1001 &426807639
@@ -595,8 +593,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveTimer: 3
   timeTillWave: 2
-  totalWaves: 15
-  numWaves: 0
   enemyPrefab: {fileID: 1420169677599048, guid: 5090df146eede864bb55f2803b1b29e4,
     type: 2}
 --- !u!4 &459708992
@@ -1173,8 +1169,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveTimer: 4
   timeTillWave: 3
-  totalWaves: 15
-  numWaves: 0
   enemyPrefab: {fileID: 1420169677599048, guid: 5090df146eede864bb55f2803b1b29e4,
     type: 2}
 --- !u!1 &909706861
@@ -1392,8 +1386,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveTimer: 4
   timeTillWave: 3
-  totalWaves: 15
-  numWaves: 0
   enemyPrefab: {fileID: 1420169677599048, guid: 5090df146eede864bb55f2803b1b29e4,
     type: 2}
 --- !u!1 &1253191495
@@ -1485,8 +1477,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveTimer: 4
   timeTillWave: 3
-  totalWaves: 15
-  numWaves: 0
   enemyPrefab: {fileID: 1420169677599048, guid: 5090df146eede864bb55f2803b1b29e4,
     type: 2}
 --- !u!1 &1408575851
@@ -1991,8 +1981,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveTimer: 4
   timeTillWave: 3
-  totalWaves: 15
-  numWaves: 0
   enemyPrefab: {fileID: 1420169677599048, guid: 5090df146eede864bb55f2803b1b29e4,
     type: 2}
 --- !u!1 &1816333886
@@ -2121,6 +2109,11 @@ Prefab:
       propertyPath: coinsResultText
       value: 
       objectReference: {fileID: 2056629191}
+    - target: {fileID: 114510532906229320, guid: 572cd9d834251624c8970e82657505d4,
+        type: 2}
+      propertyPath: acceleration
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 572cd9d834251624c8970e82657505d4, type: 2}
   m_IsPrefabAsset: 0

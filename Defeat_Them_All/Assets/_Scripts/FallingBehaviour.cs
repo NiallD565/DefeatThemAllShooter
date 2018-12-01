@@ -6,13 +6,12 @@ using UnityEngine;
 public class FallingBehaviour : MonoBehaviour
 {
 
+    private const string INCREASE_SPEED_METHOD = "increaseSpeedPerTime";
+
     [SerializeField]
     private float speed = 4f;
     [SerializeField]
-    public float acceleration = 5f; //Every 500 points, the speed will increase by this much
-
-    private float nextActionTime = 0.0f;
-    public float period = 0.5f;
+    public float acceleration = 5f; //Every 30 seconds, the speed will increase by this much
 
     private Rigidbody2D rb;
 
@@ -24,21 +23,15 @@ public class FallingBehaviour : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        
-        if (Time.time > nextActionTime)
-        {
-            nextActionTime += period;
-
-            speed += Time.deltaTime * acceleration;
-
-            rb.velocity = Vector2.down * speed;
-
-            Debug.Log("Speed + acceloration is: " + rb.velocity);
-        }
+        // gets static value speed and sets it to the velocity vector 2 down
+        rb.velocity = Vector2.down * GameController.speed;
+        Debug.Log("Speed + acceloration is: " + rb.velocity);
     }
-    /* Update is called once per frame
+
+    // Update is called once per frame
     void Update()
     {
 
-    }*/
+    }
+
 }

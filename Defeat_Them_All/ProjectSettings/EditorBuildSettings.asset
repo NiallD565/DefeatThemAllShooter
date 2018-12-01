@@ -17,9 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Options.unity
     guid: 8ce9b2dfb939ed74680e08dd601a7938
-  - enabled: 1
-    path: Assets/Scenes/Audio.unity
-    guid: ee37d0fb2e67bbe46995dde8f0f7ddf0
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/CharacterSelect.unity
     guid: d695750a6d06bed478ce496644ef6524
