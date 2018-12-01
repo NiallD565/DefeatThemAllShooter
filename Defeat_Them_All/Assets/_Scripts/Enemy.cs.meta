@@ -6,6 +6,8 @@ MonoImporter:
   defaultReferences:
   - hitClip: {instanceID: 0}
   - crashClip: {fileID: 8300000, guid: 917c0bc46ee7f9745ab5feb6bca4ee9b, type: 3}
+  - coinPrefab: {fileID: 114551321590320922, guid: ea6205ce8d0bc0540a9c9d043afc0630,
+      type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
