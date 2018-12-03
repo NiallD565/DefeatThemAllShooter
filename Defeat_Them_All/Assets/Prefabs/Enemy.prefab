@@ -98,6 +98,8 @@ MonoBehaviour:
   crashClip: {fileID: 8300000, guid: 0d6377a1a40442945ae584125efd4cea, type: 3}
   coinPrefab: {fileID: 114551321590320922, guid: ea6205ce8d0bc0540a9c9d043afc0630,
     type: 2}
+  tokenPrefab: {fileID: 114265082616398060, guid: 17a3ed4404519474b9f6be4792c5d3fd,
+    type: 2}
 --- !u!114 &114204547896409932
 MonoBehaviour:
   m_ObjectHideFlags: 1

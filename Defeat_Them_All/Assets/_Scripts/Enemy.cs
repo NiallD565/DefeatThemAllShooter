@@ -107,7 +107,7 @@ public class Enemy : MonoBehaviour
         coin.transform.position = transform.position;
         //Rigidbody2D rb = coin.GetComponent<Rigidbody2D>();
     }
-    
+
     private void SpawnToken()
     {
         Token token = Instantiate(tokenPrefab, tokenParent.transform);
@@ -124,8 +124,9 @@ public class Enemy : MonoBehaviour
             GameObject.Destroy(gameObject);
             PublishEnemyKilledEvent();
             SpawnCoin();
-            
-            if(randNum = 5)
+            RandomNumGen();
+
+            if (randNum == 5)
             {
                 // spawn token
                 SpawnToken();
@@ -150,6 +151,7 @@ public class Enemy : MonoBehaviour
 
     private void RandomNumGen()
     {
-        //randNum = Random.Range(1, 10);
+        randNum = UnityEngine.Random.Range(1, 10);
+        //Debug.Log("Random Number" + randNum);
     }
 }

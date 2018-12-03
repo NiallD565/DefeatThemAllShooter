@@ -4,8 +4,11 @@ MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
+  - coinPrefab: {fileID: 1784483735670080, guid: ea6205ce8d0bc0540a9c9d043afc0630,
+      type: 2}
   - bulletPrefab: {fileID: 114963109904342668, guid: 0fd78d6e9fe8ce44294802da4324f93f,
       type: 2}
+  - playerShot: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

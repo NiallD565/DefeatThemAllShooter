@@ -32,7 +32,7 @@ public class Coin : MonoBehaviour {
             GameObject.Destroy(gameObject);
             PublishCoinCollectedEvent();
         }
-        else if (collision.gameObject.tag == "bullet")
+        else
         {
             //Physics.IgnoreCollision(bullet.GetComponent<Collider>(), GetComponent<Collider>());
 

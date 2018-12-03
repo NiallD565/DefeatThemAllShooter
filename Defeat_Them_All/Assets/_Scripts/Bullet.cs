@@ -9,7 +9,19 @@ public class Bullet : MonoBehaviour {
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy();
+        string tagType = gameObject.tag;
+
+        if (collision.gameObject.tag == "enemy")
+        {
+            Destroy();
+        }
+        else
+        {
+            //Physics.IgnoreCollision(bullet.GetComponent<Collider>(), GetComponent<Collider>());
+
+            //Physics2D.IgnoreCollision(this.gameObject.GetComponent<BoxCollider2D>(), BulletPrefab.GetComponent<BoxCollider2D>());
+            Debug.Log("Collision detected");
+        }
     }
     private void Destroy()
     {

@@ -19,6 +19,7 @@ public class GameController : MonoBehaviour
     private int playerScore = 0;
     private int enemiesKilled = 0;
     private int coinsCollected = 0;
+    private int tokensCollected = 0;
 
     [SerializeField]
     private Text scoreText; // update in private method
@@ -30,6 +31,10 @@ public class GameController : MonoBehaviour
     private Text coinsCollectedText;// update in private method
     [SerializeField]
     private Text coinsResultText;// update in private method
+    [SerializeField]
+    private Text tokensCollectedText;// update in private method
+    [SerializeField]
+    private Text tokensResultText;// update in private method
 
     // Use this for initialization
     void Start()
@@ -45,11 +50,13 @@ public class GameController : MonoBehaviour
     {
         Enemy.EnemyKilledEvent += HandleEnemyKilledEvent;
         Coin.coinsCollectedEvent += HandleCoinCollectedEvent;
+        Token.tokensCollectedEvent += HandleTokensCollectedEvent;
     }
     private void OnDisable()
     {
         Enemy.EnemyKilledEvent -= HandleEnemyKilledEvent;
         Coin.coinsCollectedEvent -= HandleCoinCollectedEvent;
+        Token.tokensCollectedEvent -= HandleTokensCollectedEvent;
 
     }
 
@@ -68,6 +75,14 @@ public class GameController : MonoBehaviour
         coinsCollected++;
         UpdateCoinsCollected();
     }
+
+    private void HandleTokensCollectedEvent(Token token)
+    {
+        tokensCollected++;
+        UpdateTokensCollected();
+        Debug.Log("Tokens collected" + tokensCollected);
+    }
+
     private void UpdateScoreText()
     {
         scoreText.text = playerScore.ToString("000000");
@@ -82,6 +97,11 @@ public class GameController : MonoBehaviour
     {
         coinsCollectedText.text = coinsCollected.ToString("0");
         coinsResultText.text = coinsCollected.ToString("Coins: 0");
+    }
+    private void UpdateTokensCollected()
+    {
+        tokensCollectedText.text = tokensCollected.ToString("T: 0");
+        tokensResultText.text = tokensCollected.ToString("T: 0");
     }
 
     private void increaseSpeedPerTime()
