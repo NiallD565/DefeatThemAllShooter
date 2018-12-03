@@ -55,25 +55,6 @@ public class Enemy : MonoBehaviour
         SetMaxHealth();
     }
 
-    /*private void OnCollisionEnter2D(Collision2D collision)
-    {
-        // need to determine the type of "collision"
-        string tagType = gameObject.tag;
-        //var bullet = collision.GetComponent<Bullet>();
-        //var player = collision.GetComponent<PlayerBehaviour>();
-
-        if(collision.gameObject.tag =="bullet")
-        {
-            //PlayClip(hitClip);
-            //GameObject.Destroy(gameObject);
-            //PublishEnemyKilledEvent();
-            //Destroy(gameObject);
-            //SpawnCoin();
-        }
-        
-    }*/
-
-    //void OnTriggerEnter2D(Collider2D enemy)
     private void OnCollisionEnter2D(Collision2D enemy)
     {
         string tagType = gameObject.tag;
@@ -105,7 +86,6 @@ public class Enemy : MonoBehaviour
     {
         Coin coin = Instantiate(coinPrefab, coinParent.transform);
         coin.transform.position = transform.position;
-        //Rigidbody2D rb = coin.GetComponent<Rigidbody2D>();
     }
 
     private void SpawnToken()

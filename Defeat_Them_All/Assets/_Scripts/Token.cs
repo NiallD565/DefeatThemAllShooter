@@ -17,26 +17,7 @@ public class Token : MonoBehaviour {
     void Start () {
 
     }
-    /*
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        string tagType = gameObject.tag;
-        //Debug.Log("Token detected");
-
-        if (collision.gameObject.tag == "player")
-        {
-            GameObject.Destroy(gameObject);
-            PublishTokenCollectedEvent();
-        }
-        else if (collision.gameObject.tag == "bullet")
-        {
-            //Physics.IgnoreCollision(bullet.GetComponent<Collider>(), GetComponent<Collider>());
-
-            //Physics2D.IgnoreCollision(this.gameObject.GetComponent<BoxCollider2D>(), BulletPrefab.GetComponent<BoxCollider2D>());
-            //Debug.Log("Collision detected");
-        }
-    }
-    */
+    
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "player")

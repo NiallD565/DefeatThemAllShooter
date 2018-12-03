@@ -709,7 +709,7 @@ PlayerSettings:
   cloudServicesEnabled:
     UNet: 1
   facebookSdkVersion: 7.9.4
-  apiCompatibilityLevel: 2
+  apiCompatibilityLevel: 3
   cloudProjectId: d9890db2-1c89-4c74-b1c3-90f0e620b5cd
   projectName: Defeat_Them_All
   organizationId: nialldev565

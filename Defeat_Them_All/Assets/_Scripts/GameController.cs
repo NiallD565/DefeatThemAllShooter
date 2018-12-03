@@ -20,6 +20,7 @@ public class GameController : MonoBehaviour
     private int enemiesKilled = 0;
     private int coinsCollected = 0;
     private int tokensCollected = 0;
+    public static int tempTokenCollected = 0;
 
     [SerializeField]
     private Text scoreText; // update in private method
@@ -78,6 +79,7 @@ public class GameController : MonoBehaviour
 
     private void HandleTokensCollectedEvent(Token token)
     {
+        tempTokenCollected++;
         tokensCollected++;
         UpdateTokensCollected();
         Debug.Log("Tokens collected" + tokensCollected);
@@ -101,13 +103,13 @@ public class GameController : MonoBehaviour
     private void UpdateTokensCollected()
     {
         tokensCollectedText.text = tokensCollected.ToString("T: 0");
-        tokensResultText.text = tokensCollected.ToString("T: 0");
+        tokensResultText.text = tokensCollected.ToString("Tokens: 0");
     }
 
     private void increaseSpeedPerTime()
     {
         // speed controller singleton
         speed += acceleration;
-        Debug.Log("Speed + acceloration is: " + speed);
+        //Debug.Log("Speed + acceloration is: " + speed);
     }
 }

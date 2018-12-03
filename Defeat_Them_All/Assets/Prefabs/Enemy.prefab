@@ -63,7 +63,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!58 &58997581043279346
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -98,7 +98,7 @@ MonoBehaviour:
   crashClip: {fileID: 8300000, guid: 0d6377a1a40442945ae584125efd4cea, type: 3}
   coinPrefab: {fileID: 114551321590320922, guid: ea6205ce8d0bc0540a9c9d043afc0630,
     type: 2}
-  tokenPrefab: {fileID: 114265082616398060, guid: 17a3ed4404519474b9f6be4792c5d3fd,
+  tokenPrefab: {fileID: 114705974375298788, guid: 57c9009fb4160314f86471f7e9d2b50b,
     type: 2}
 --- !u!114 &114204547896409932
 MonoBehaviour:
@@ -148,8 +148,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5aaacaf5b99e7664fba222d02e69d537, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 4544d76920b3a5c498cd4478d61b2d86, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

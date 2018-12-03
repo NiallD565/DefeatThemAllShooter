@@ -25,7 +25,7 @@ public class FallingBehaviour : MonoBehaviour
     {
         // gets static value speed and sets it to the velocity vector 2 down
         rb.velocity = Vector2.down * GameController.speed;
-        Debug.Log("Speed + acceloration is: " + rb.velocity);
+        //Debug.Log("Speed + acceloration is: " + rb.velocity);
     }
 
     // Update is called once per frame
