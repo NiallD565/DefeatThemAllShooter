@@ -8,6 +8,11 @@ public class Enemy : MonoBehaviour
 {
     private const string CIRCLE_TAG_TEXT = "Circle";
 
+    // ----------- Health system -------------
+    public int maxHealth = 30;
+    public int currentHealth;
+    public int damageToGive = 10;
+
     [SerializeField]
     private int scoreValue = 10;
 
@@ -39,10 +44,10 @@ public class Enemy : MonoBehaviour
     {
         soundController = SoundController.FindSoundController();
         coinParent = ParentUtils.FindCoinParent();
-
+        currentHealth = maxHealth;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    /*private void OnCollisionEnter2D(Collision2D collision)
     {
         // need to determine the type of "collision"
         string tagType = gameObject.tag;
@@ -51,13 +56,24 @@ public class Enemy : MonoBehaviour
 
         if(collision.gameObject.tag =="bullet")
         {
-            PlayClip(hitClip);
-            GameObject.Destroy(gameObject);
-            PublishEnemyKilledEvent();
+            //PlayClip(hitClip);
+            //GameObject.Destroy(gameObject);
+            //PublishEnemyKilledEvent();
             //Destroy(gameObject);
-            SpawnCoin();
+            //SpawnCoin();
         }
         
+    }*/
+
+    //void OnTriggerEnter2D(Collider2D enemy)
+    private void OnCollisionEnter2D(Collision2D enemy)
+    {
+        string tagType = gameObject.tag;
+        if (enemy.gameObject.tag == "bullet")
+        {
+            Debug.Log("Colssion detected");
+            currentHealth -= damageToGive;
+        }
     }
 
     private void PlayClip(AudioClip clip)
@@ -81,19 +97,34 @@ public class Enemy : MonoBehaviour
     {
         Coin coin = Instantiate(coinPrefab, coinParent.transform);
         coin.transform.position = transform.position;
-        //Rigidbody2D rb = coin.GetComponent<Rigidbody2D>();
-
     }
 
     void Update()
     {
         Invoke("DestroyAfterTime", 2);
+
+        if (currentHealth <= 0)
+        {
+            Debug.Log("enemy killed");
+            //GameObject.Destroy(gameObject);
+            GameObject.Destroy(gameObject);
+            PublishEnemyKilledEvent();
+            SpawnCoin();
+        }
     }
 
     private void DestroyAfterTime()
     {
         GameObject.Destroy(gameObject);
-        //Debug.Log("bullet Destroyed");
     }
 
+    public void HurtEnemy(int damageToGive)
+    {
+        currentHealth -= damageToGive;
+    }
+
+    public void SetMaxHealth()
+    {
+        currentHealth = maxHealth;
+    }
 }
