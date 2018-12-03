@@ -12,6 +12,12 @@ namespace Utilities
         public const string SPAWN_METHOD = "Spawn";
         public const string ENEMY_PARENT_NAME = "Enemies";
         public const string COIN_SPAWN_METHOD = "SpawnCoin";
+        public const string TOKEN_SPAWN_METHOD = "SpawnToken";
+
+        public static GameObject FindTokenParent()
+        {
+            return FindRequiredParent(TOKEN_SPAWN_METHOD);
+        }
 
         public static GameObject FindEnemyParent()
         {

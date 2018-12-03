@@ -1,28 +1,20 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Utilities;
 
-public class Coin : MonoBehaviour {
+public class Token : MonoBehaviour {
 
-    public GameObject BulletPrefab;
 
     // EnemyKilledEvent handlers
-    public delegate void coinsCollected(Coin coin);
+    public delegate void tokensCollected(Token token);
 
     // static event
-    public static coinsCollected coinsCollectedEvent;
-
+    public static tokensCollected tokensCollectedEvent;
     // Use this for initialization
     void Start () {
-        Physics2D.IgnoreCollision(this.gameObject.GetComponent<BoxCollider2D>(), BulletPrefab.GetComponent<BoxCollider2D>());
-    }
+		
+	}
 
-    // Update is called once per frame
-    void Update () {
-        //bullet = GameObject.Find("bullet");
-    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         string tagType = gameObject.tag;
@@ -30,7 +22,7 @@ public class Coin : MonoBehaviour {
         if (collision.gameObject.tag == "player")
         {
             GameObject.Destroy(gameObject);
-            PublishCoinCollectedEvent();
+            PublishTokenCollectedEvent();
         }
         else if (collision.gameObject.tag == "bullet")
         {
@@ -41,13 +33,17 @@ public class Coin : MonoBehaviour {
         }
     }
 
-    private void PublishCoinCollectedEvent()
+    private void PublishTokenCollectedEvent()
     {
-        Debug.Log("Coin collected published");
-        if (coinsCollectedEvent != null)
+        Debug.Log("Token collected published");
+        if (tokensCollectedEvent != null)
         {
-            coinsCollectedEvent(this);
+            tokensCollectedEvent(this);
         }
     }
-    
+
+    // Update is called once per frame
+    void Update () {
+		
+	}
 }

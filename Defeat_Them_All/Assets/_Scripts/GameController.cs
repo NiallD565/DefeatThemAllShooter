@@ -34,8 +34,9 @@ public class GameController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        speed = 4f;
         Time.timeScale = 1.0f;// so the game isn't frozen when playing again
-        InvokeRepeating(INCREASE_SPEED_METHOD, 0f, 10f);
+        InvokeRepeating(INCREASE_SPEED_METHOD, 0f, 7f);
     }
 
 

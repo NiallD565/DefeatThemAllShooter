@@ -54,7 +54,6 @@ public class PointSpawner : MonoBehaviour
 
         spawnedEnemy++;
         waveSpawn = false;
-
         //var enemy = Instantiate(enemyPrefab);
         // set the position
         //enemy.transform.position = spawnPoint.transform.position;
@@ -64,7 +63,6 @@ public class PointSpawner : MonoBehaviour
     void FixedUpdate()
     {
 		// Spawns enemies in waves but based on time.
-       
         //Debug.Log("Time tll next wave " + timeTillWave);
         // Increases the timer to allow the timed waves to work
         timeTillWave += Time.deltaTime;

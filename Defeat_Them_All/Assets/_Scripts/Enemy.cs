@@ -3,10 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Utilities;
+using static UnityEngine.Random;
 
 public class Enemy : MonoBehaviour
 {
     private const string CIRCLE_TAG_TEXT = "Circle";
+
+    // for tokens
+    private int randNum;
 
     // ----------- Health system -------------
     public int maxHealth = 30;
@@ -25,8 +29,11 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     private Coin coinPrefab;
 
-    private GameObject coinParent;
+    [SerializeField]
+    public Token tokenPrefab;
 
+    private GameObject coinParent;
+    private GameObject tokenParent;
 
     private SoundController soundController;
 
@@ -44,7 +51,8 @@ public class Enemy : MonoBehaviour
     {
         soundController = SoundController.FindSoundController();
         coinParent = ParentUtils.FindCoinParent();
-        currentHealth = maxHealth;
+        tokenParent = ParentUtils.FindTokenParent();
+        SetMaxHealth();
     }
 
     /*private void OnCollisionEnter2D(Collision2D collision)
@@ -72,7 +80,7 @@ public class Enemy : MonoBehaviour
         if (enemy.gameObject.tag == "bullet")
         {
             Debug.Log("Colssion detected");
-            currentHealth -= damageToGive;
+            HurtEnemy(damageToGive);
         }
     }
 
@@ -97,6 +105,14 @@ public class Enemy : MonoBehaviour
     {
         Coin coin = Instantiate(coinPrefab, coinParent.transform);
         coin.transform.position = transform.position;
+        //Rigidbody2D rb = coin.GetComponent<Rigidbody2D>();
+    }
+    
+    private void SpawnToken()
+    {
+        Token token = Instantiate(tokenPrefab, tokenParent.transform);
+        token.transform.position = transform.position;
+
     }
 
     void Update()
@@ -105,11 +121,15 @@ public class Enemy : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            Debug.Log("enemy killed");
-            //GameObject.Destroy(gameObject);
             GameObject.Destroy(gameObject);
             PublishEnemyKilledEvent();
             SpawnCoin();
+            
+            if(randNum = 5)
+            {
+                // spawn token
+                SpawnToken();
+            }
         }
     }
 
@@ -126,5 +146,10 @@ public class Enemy : MonoBehaviour
     public void SetMaxHealth()
     {
         currentHealth = maxHealth;
+    }
+
+    private void RandomNumGen()
+    {
+        //randNum = Random.Range(1, 10);
     }
 }
