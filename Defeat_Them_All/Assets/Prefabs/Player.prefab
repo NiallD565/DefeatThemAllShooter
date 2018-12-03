@@ -99,12 +99,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5440ca17411ebbe42b79173ca4510c2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startPos: {x: 0, y: 0}
-  direction: {x: 0, y: 0}
-  m_Text: {fileID: 0}
-  speed: 15
+  GameOverPanel: {fileID: 0}
+  crashClip: {fileID: 0}
+  touchSpeed: 0.4
+  keySpeed: 15
   xMin: -1.9
   xMax: 1.9
+  yMin: -4.5
+  yMax: 4
 --- !u!212 &212474524845282726
 SpriteRenderer:
   m_ObjectHideFlags: 1

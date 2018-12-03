@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 212793787759516292}
   - component: {fileID: 114265082616398060}
   - component: {fileID: 61561098210350100}
+  - component: {fileID: 50707164003708870}
   m_Layer: 0
   m_Name: token
   m_TagString: Untagged
@@ -42,6 +43,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50707164003708870
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1654110697210204}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
 --- !u!61 &61561098210350100
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -78,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e938c033d85327641a59d4af211cd699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BulletPrefab: {fileID: 0}
 --- !u!212 &212793787759516292
 SpriteRenderer:
   m_ObjectHideFlags: 1

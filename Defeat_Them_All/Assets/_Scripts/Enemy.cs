@@ -83,7 +83,7 @@ public class Enemy : MonoBehaviour
             HurtEnemy(damageToGive);
         }
     }
-
+   
     private void PlayClip(AudioClip clip)
     {
         if (soundController)
@@ -133,7 +133,6 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-
     private void DestroyAfterTime()
     {
         GameObject.Destroy(gameObject);

@@ -8,6 +8,7 @@ public class WeaponContoller : MonoBehaviour {
     // need bullet prefab, firing rate, bullet speed, 
     // need a private gameobject as parent of bullets
 
+
     // == constants ==
     private const string SHOOT_METHOD = "Shoot";
     private bool isShooting = false;
