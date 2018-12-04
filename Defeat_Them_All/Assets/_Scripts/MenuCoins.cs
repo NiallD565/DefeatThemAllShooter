@@ -6,12 +6,12 @@ using UnityEngine.UI;
 
 
 public class MenuCoins : MonoBehaviour {
-
-     private int currency;
-
+    
+    private int currency = 0;
+    
     [SerializeField]
-    private Text currecyText; // update in private method
-
+    private Text currencyText; // update in private method
+    
     // Use this for initialization
     void Start () {
         //Fetch the PlayerPref settings
@@ -20,13 +20,14 @@ public class MenuCoins : MonoBehaviour {
     void SetText()
     {
         Debug.Log("Currency set to balance");
-        //Fetch the score from the PlayerPrefs (set these Playerprefs in another script). If no Int of this name exists, the default is 0.
-        curencyText.text = PlayerPrefs.GetInt("currentBalance", 0).toString();
-
         currency = PlayerPrefs.GetInt("currentBalance", 0);
+        //Fetch the score from the PlayerPrefs (set these Playerprefs in another script). If no Int of this name exists, the default is 0.
+        //currencyText.text = PlayerPrefs.GetInt("currentBalance").toString("0");
+
     }
-	// Update is called once per frame
-	void Update () {
+   
+    // Update is called once per frame
+    void Update () {
 		
 	}
 }

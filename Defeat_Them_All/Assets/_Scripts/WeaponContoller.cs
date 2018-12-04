@@ -47,7 +47,7 @@ public class WeaponContoller : MonoBehaviour {
         {
             CancelInvoke(KEY_SHOOT_METHOD);
         }
-
+        
         if (Input.touchCount > 0 && !isShooting)
         {
             isShooting = true;

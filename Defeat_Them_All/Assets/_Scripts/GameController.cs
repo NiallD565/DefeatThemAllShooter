@@ -12,7 +12,7 @@ public class GameController : MonoBehaviour
     [SerializeField]
     public static float speed = 4f;
     [SerializeField]
-    public float acceleration = 1f; //Every 10 seconds, the speed will increase by this much
+    public float acceleration = 1f; //Every 2 seconds, the speed will increase by this much
 
 
     // == fields ==

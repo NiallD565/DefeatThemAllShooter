@@ -90,9 +90,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db8efc2e683ee6e44abce952a7968762, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 30
+  maxHealth: 40
   currentHealth: 0
-  damageToGive: 10
   scoreValue: 10
   hitClip: {fileID: 0}
   crashClip: {fileID: 8300000, guid: 0d6377a1a40442945ae584125efd4cea, type: 3}

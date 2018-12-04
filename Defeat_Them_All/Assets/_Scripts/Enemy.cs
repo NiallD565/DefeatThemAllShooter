@@ -13,9 +13,11 @@ public class Enemy : MonoBehaviour
     private int randNum;
 
     // ----------- Health system -------------
-    public int maxHealth = 30;
-    public int currentHealth;
-    public int damageToGive = 10;
+    [SerializeField]
+    private int maxHealth = 40;
+    [SerializeField]
+    private int currentHealth;
+    public static int damageToGive = 10;
 
     [SerializeField]
     private int scoreValue = 10;
