@@ -16,7 +16,8 @@ public class GameController : MonoBehaviour
 
 
     // == fields ==
-    private int playerScore = 0;
+    public static int playerScore = 0;
+    public static int highScore = 0;
     private int enemiesKilled = 0;
     public static int coinsCollected = 0;
     public static int currentBalance;
@@ -119,6 +120,13 @@ public class GameController : MonoBehaviour
         currentBalance += coinsCollected;
         PlayerPrefs.SetInt("currentBalance", coinsCollected);
         coinsCollected = 0;
-        Debug.Log("Coin balance" + currentBalance);
+
+        if (playerScore >= PlayerPrefs.GetInt("highScore"))
+        {
+            PlayerPrefs.SetInt("highScore", playerScore);
+        }
+        Debug.Log("High score: " + highScore);
+
+        //Debug.Log("Coin balance" + currentBalance);
     }
 }

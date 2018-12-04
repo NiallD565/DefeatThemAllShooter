@@ -62,7 +62,6 @@ public class Enemy : MonoBehaviour
         string tagType = gameObject.tag;
         if (enemy.gameObject.tag == "bullet")
         {
-            Debug.Log("Colssion detected");
             HurtEnemy(damageToGive);
         }
     }

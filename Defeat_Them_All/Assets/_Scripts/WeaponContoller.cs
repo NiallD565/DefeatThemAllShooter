@@ -58,7 +58,7 @@ public class WeaponContoller : MonoBehaviour {
             CancelInvoke(TOUCH_SHOOT_METHOD);
         }
 
-        if (GameController.tempTokenCollected == 1)
+        if (GameController.tempTokenCollected == 5)
         {
             Debug.Log("Coroutine started");
             StartCoroutine(Special());
@@ -92,13 +92,16 @@ public class WeaponContoller : MonoBehaviour {
 
     IEnumerator Special()
     {
-        //Debug.Log("Special intiated");
-        keyFiringRate = 0.1f;  
-        Debug.Log("Firing rate before wait" + keyFiringRate);
-        yield return new WaitForSecondsRealtime(5);
         GameController.tempTokenCollected = 0;
-        keyFiringRate = 0.2f;
-        Debug.Log("Firing rate after wait" + keyFiringRate);
+        //Debug.Log("Special intiated");
+        //keyFiringRate = 0.1f;
+        Enemy.damageToGive += 10;
+        //Debug.Log("Firing rate before wait" + keyFiringRate);
+        Debug.Log("Damage before wait: " + Enemy.damageToGive);
+        yield return new WaitForSecondsRealtime(5);
+        Enemy.damageToGive -= 10;
+        //keyFiringRate = 0.2f;
+        Debug.Log("Damage after wait: " + Enemy.damageToGive);
 
     }
 }
