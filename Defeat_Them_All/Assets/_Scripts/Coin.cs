@@ -21,6 +21,7 @@ public class Coin : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        Invoke("DestroyAfterTime", 2);
         //bullet = GameObject.Find("bullet");
     }
     /*
@@ -58,5 +59,8 @@ public class Coin : MonoBehaviour {
             coinsCollectedEvent(this);
         }
     }
-    
+    private void DestroyAfterTime()
+    {
+        GameObject.Destroy(gameObject);
+    }
 }

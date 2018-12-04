@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-
     private const string INCREASE_SPEED_METHOD = "increaseSpeedPerTime";
 
     [SerializeField]
@@ -15,10 +14,12 @@ public class GameController : MonoBehaviour
     [SerializeField]
     public float acceleration = 1f; //Every 10 seconds, the speed will increase by this much
 
+
     // == fields ==
     private int playerScore = 0;
     private int enemiesKilled = 0;
-    private int coinsCollected = 0;
+    public static int coinsCollected = 0;
+    public static int currentBalance;
     private int tokensCollected = 0;
     public static int tempTokenCollected = 0;
 
@@ -111,5 +112,13 @@ public class GameController : MonoBehaviour
         // speed controller singleton
         speed += acceleration;
         //Debug.Log("Speed + acceloration is: " + speed);
+    }
+
+    public static void LoseGame()
+    {
+        currentBalance += coinsCollected;
+        PlayerPrefs.SetInt("currentBalance", coinsCollected);
+        coinsCollected = 0;
+        Debug.Log("Coin balance" + currentBalance);
     }
 }

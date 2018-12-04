@@ -99,6 +99,7 @@ public class PlayerBehaviour : MonoBehaviour
             Debug.Log("GameEnded");
             GameOverPanel.SetActive(true);
             Time.timeScale = 0.0f;// stopping time
+            GameController.LoseGame();
         }
     }
 

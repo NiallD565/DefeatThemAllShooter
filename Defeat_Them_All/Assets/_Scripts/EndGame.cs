@@ -9,10 +9,10 @@ public class EndGame : MonoBehaviour {
 
     public void Quit()
     {
-        Debug.Log("GameEnded");
+        //Debug.Log("GameEnded");
         PauseMenuPanel.SetActive(false);
         GameOverPanel.SetActive(true);
         Time.timeScale = 0.0f;// stopping time
-
+        
     }
 }

@@ -21,7 +21,7 @@ public class WeaponContoller : MonoBehaviour {
     [SerializeField]
     private float bulletSpeed = 5f;
 
-    private float keyFiringRate = 0.4f;
+    private float keyFiringRate = 0.2f;
 
     [SerializeField]
     private AudioClip playerShot;
@@ -71,7 +71,6 @@ public class WeaponContoller : MonoBehaviour {
         bullet.transform.position = transform.position;
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.velocity = Vector3.up * bulletSpeed;
-        isShooting = false;
         if (soundController)
         {
             soundController.PlayOneShot(playerShot);
@@ -94,11 +93,11 @@ public class WeaponContoller : MonoBehaviour {
     IEnumerator Special()
     {
         //Debug.Log("Special intiated");
-        keyFiringRate = 0.2f;    
+        keyFiringRate = 0.1f;  
         Debug.Log("Firing rate before wait" + keyFiringRate);
         yield return new WaitForSecondsRealtime(5);
         GameController.tempTokenCollected = 0;
-        keyFiringRate = 0.4f;
+        keyFiringRate = 0.2f;
         Debug.Log("Firing rate after wait" + keyFiringRate);
 
     }
