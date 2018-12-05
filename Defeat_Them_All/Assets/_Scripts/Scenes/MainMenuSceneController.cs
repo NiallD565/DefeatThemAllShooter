@@ -21,8 +21,7 @@ namespace Scenes
 
         public void OptionsOnClick()
         {
-            SceneManager.LoadSceneAsync(SceneNames.OPTIONS_MENU,
-                                        LoadSceneMode.Additive);
+            SceneManager.LoadSceneAsync(SceneNames.OPTIONS_MENU);
         }
 
         public void CharacterSelectOnClick()

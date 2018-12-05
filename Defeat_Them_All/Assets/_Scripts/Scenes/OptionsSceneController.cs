@@ -13,7 +13,7 @@ namespace Scenes
         public void BackOnClick()
         {
             // go back to main menu
-            SceneManager.UnloadSceneAsync(SceneNames.OPTIONS_MENU);
+            SceneManager.LoadSceneAsync(SceneNames.MAIN_MENU);
         }
 
     }

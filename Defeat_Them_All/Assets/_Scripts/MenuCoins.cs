@@ -30,6 +30,7 @@ public class MenuCoins : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
+        // Called to update screen when purchases are made
         SetCurrency();
     }
 }

@@ -96,6 +96,7 @@ public class GameController : MonoBehaviour
         tokensCollected++;
         UpdateTokensCollected();
         //Debug.Log("Tokens collected" + tokensCollected);
+        
     }
 
     private void UpdateScoreText()
