@@ -10,18 +10,13 @@ public class WeaponContoller : MonoBehaviour {
 
 
     // == constants ==
-    private const string KEY_SHOOT_METHOD = "KeyShoot";
-    private const string TOUCH_SHOOT_METHOD = "TouchShoot";
-
-    private bool isShooting = false;
-
+    private const string SHOOT_METHOD = "Shoot";
+    // == Weapons ==
     [SerializeField]
     private Bullet bulletPrefab;
-
     [SerializeField]
     private float bulletSpeed = 5f;
-
-    private float keyFiringRate = 0.2f;
+    private float firingRate = 0.2f;
 
     [SerializeField]
     private AudioClip playerShot;
@@ -35,55 +30,25 @@ public class WeaponContoller : MonoBehaviour {
     {
         bulletParent = ParentUtils.FindBulletParent();
         soundController = SoundController.FindSoundController();
+        InvokeRepeating(SHOOT_METHOD, 0f, firingRate);
+
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (GameController.tempTokenCollected == 3)
         {
-            InvokeRepeating(KEY_SHOOT_METHOD, 0f, keyFiringRate);
-        }
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            CancelInvoke(KEY_SHOOT_METHOD);
-        }
-        
-        if (Input.touchCount > 0 && !isShooting)
-        {
-            isShooting = true;
-            Invoke(TOUCH_SHOOT_METHOD, 0.2f);
-        }
-        if(Input.touchCount < 0)
-        {
-            CancelInvoke(TOUCH_SHOOT_METHOD);
-        }
-
-        if (GameController.tempTokenCollected == 5)
-        {
-            Debug.Log("Coroutine started");
+            //Debug.Log("Coroutine started");
             StartCoroutine(Special());
         }
     }
-
-    private void KeyShoot()
+    
+    private void Shoot()
     {
         Bullet bullet = Instantiate(bulletPrefab, bulletParent.transform);
         bullet.transform.position = transform.position;
         Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
         rb.velocity = Vector3.up * bulletSpeed;
-        if (soundController)
-        {
-            soundController.PlayOneShot(playerShot);
-        }
-    }
-
-    private void TouchShoot()
-    {
-        Bullet bullet = Instantiate(bulletPrefab, bulletParent.transform);
-        bullet.transform.position = transform.position;
-        Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-        rb.velocity = Vector3.up * bulletSpeed;
-        isShooting = false;
         if (soundController)
         {
             soundController.PlayOneShot(playerShot);
@@ -94,14 +59,17 @@ public class WeaponContoller : MonoBehaviour {
     {
         GameController.tempTokenCollected = 0;
         //Debug.Log("Special intiated");
-        //keyFiringRate = 0.1f;
-        Enemy.damageToGive += 10;
-        //Debug.Log("Firing rate before wait" + keyFiringRate);
-        Debug.Log("Damage before wait: " + Enemy.damageToGive);
-        yield return new WaitForSecondsRealtime(5);
-        Enemy.damageToGive -= 10;
-        //keyFiringRate = 0.2f;
-        Debug.Log("Damage after wait: " + Enemy.damageToGive);
+        CancelInvoke(SHOOT_METHOD);
+        firingRate -= 0.1f;
+        InvokeRepeating(SHOOT_METHOD, 0f, firingRate);
+        //Debug.Log("Firing rate before wait" + firingRate);
+        //Debug.Log("Damage before wait: " + firingRate);
+        yield return new WaitForSecondsRealtime(10);
+        CancelInvoke(SHOOT_METHOD);
+        firingRate += 0.1f;
+        //Debug.Log("Firing rate after wait" + firingRate);
+        InvokeRepeating(SHOOT_METHOD, 0f, firingRate);
+        //Debug.Log("Damage after wait: " + firingRate);
 
     }
 }

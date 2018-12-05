@@ -10,24 +10,26 @@ public class MenuCoins : MonoBehaviour {
     private int currency = 0;
     
     [SerializeField]
-    private Text currencyText; // update in private method
+    private Text TotalCoinsText; // update in private method
     
     // Use this for initialization
-    void Start () {
-        //Fetch the PlayerPref settings
-        SetText();
-    }
-    void SetText()
+    void Start ()
     {
-        Debug.Log("Currency set to balance");
-        currency = PlayerPrefs.GetInt("currentBalance", 0);
+        //Fetch the PlayerPref settings
+        SetCurrency();
+    }
+    void SetCurrency()
+    {
+        //Debug.Log("Currency set to balance");
+        currency = PlayerPrefs.GetInt("currentBalance");
         //Fetch the score from the PlayerPrefs (set these Playerprefs in another script). If no Int of this name exists, the default is 0.
-        //currencyText.text = PlayerPrefs.GetInt("currentBalance").toString("0");
+        TotalCoinsText.text = currency.ToString();
 
     }
-   
+
     // Update is called once per frame
-    void Update () {
-		
-	}
+    void Update ()
+    {
+        SetCurrency();
+    }
 }

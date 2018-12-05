@@ -8,13 +8,9 @@ public class UpgradeController : MonoBehaviour {
 
     private int currency = 0;
 
-    private bool up1Clicked = false;
-    private bool up2Clicked = false;
-    private bool up3Clicked = false;
-
-
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
         initCurrency();
 	}
 	
@@ -26,23 +22,25 @@ public class UpgradeController : MonoBehaviour {
     private void initCurrency()
     {
         currency = PlayerPrefs.GetInt("currentBalance", 0);
-        Debug.Log("Coins: " + currency);
+        //Debug.Log("Coins: " + currency);
 
     }
 
     public void Upgrade1()
     {
         // to stop increasing the damage endlessly
-        if (up1Clicked == false)
+        //(up1Clicked == false)
+        if (PlayerPrefs.GetInt("grade1") == 0)
         {
-            if (currency >= 5)
+            if (currency >= 50)
             {
-                currency -= 5;
-                up1Clicked = true;
+                currency -= 50;
+                //up1Clicked = true;
+                PlayerPrefs.SetInt("grade1", 1);
                 Debug.Log("Coins: " + currency);
                 Enemy.damageToGive += 5;
                 Debug.Log("Damage per hit: " + Enemy.damageToGive);
-
+                PlayerPrefs.SetInt("currentBalance", currency);
             }
             else
                 Debug.Log("Not enough coins");
@@ -52,11 +50,14 @@ public class UpgradeController : MonoBehaviour {
 
     public void Upgrade2()
     {
-        if (up2Clicked == false)
+        if (PlayerPrefs.GetInt("grade2") == 0)
         {
             if (currency >= 100)
             {
+                PlayerPrefs.SetInt("grade2", 1);
                 currency -= 100;
+                Enemy.damageToGive += 5;
+                PlayerPrefs.SetInt("currentBalance", currency);
             }
             else
                 Debug.Log("Not enough coins");
@@ -66,11 +67,14 @@ public class UpgradeController : MonoBehaviour {
 
     public void Upgrade3()
     {
-        if (up3Clicked == false)
+        if (PlayerPrefs.GetInt("grade3") == 0)
         {
             if (currency >= 150)
             {
+                PlayerPrefs.SetInt("grade3", 1);
                 currency -= 150;
+                Enemy.damageToGive += 5;
+                PlayerPrefs.SetInt("currentBalance", currency);
             }
             else
                 Debug.Log("Not enough coins");

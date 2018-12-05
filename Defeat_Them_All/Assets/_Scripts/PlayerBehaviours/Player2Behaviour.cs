@@ -4,19 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 // using UnityEngine.Debug;
 
-public class PlayerBehaviour : MonoBehaviour
+public class Player2Behaviour : MonoBehaviour
 {
+    // Controls Lugia game object
+    // Has 2 additional lives (total 3) standard movement speed
     public GameObject GameOverPanel; //holds the user interface
 
     // constants
     private const string H_AXIS = "Horizontal";
     private const string V_AXIS = "Vertical";
-
-    //public Vector2 startPos;
-    //public Vector2 direction;
-
-    //public Text m_Text;
-    //string message;
 
     [SerializeField]
     private AudioClip crashClip;
@@ -24,7 +20,7 @@ public class PlayerBehaviour : MonoBehaviour
     private SoundController soundController;
 
     // PlayerKilledEvent handlers
-    public delegate void PlayerKilled(PlayerBehaviour player);
+    public delegate void PlayerKilled(Player2Behaviour player);
 
     // static event
     public static PlayerKilled PlayerKilledEvent;
@@ -34,7 +30,7 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField]
     private float touchSpeed = 0.4f;
     [SerializeField]
-    private float keySpeed = 15f;
+    private float keySpeed = 1f;
     [SerializeField]
     private float xMin = -2.7f;
     [SerializeField]
@@ -44,6 +40,9 @@ public class PlayerBehaviour : MonoBehaviour
     [SerializeField]
     private float yMax = 4f;
 
+    // For lives
+    private int collisionCounter = 3;
+
 
     private Rigidbody2D rb;
     // Use this for initialization
@@ -52,7 +51,7 @@ public class PlayerBehaviour : MonoBehaviour
         // get the current object
         rb = GetComponent<Rigidbody2D>();
         soundController = SoundController.FindSoundController();
-
+        collisionCounter = 3;
     }
 
     // update with the physics engine
@@ -82,7 +81,7 @@ public class PlayerBehaviour : MonoBehaviour
         float yValue = Mathf.Clamp(rb.position.y, yMin, yMax);
 
         // keep position.x and position.y between two values
-        rb.position = new Vector2(xValue, yValue);        
+        rb.position = new Vector2(xValue, yValue);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -92,14 +91,19 @@ public class PlayerBehaviour : MonoBehaviour
 
         if (collision.gameObject.tag == "enemy")
         {
+            collisionCounter--;
             if (soundController)
             {
                 soundController.PlayOneShot(crashClip);
             }
-            Debug.Log("GameEnded");
-            GameOverPanel.SetActive(true);
-            Time.timeScale = 0.0f;// stopping time
-            GameController.LoseGame();
+            if (collisionCounter == 0) {
+                Debug.Log("GameEnded");
+                GameOverPanel.SetActive(true);
+                Time.timeScale = 0.0f;// stopping time
+                GameController.LoseGame();
+            }
+            Debug.Log("Collision counter: " + collisionCounter);
+
         }
     }
 

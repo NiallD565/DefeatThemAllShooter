@@ -64,6 +64,10 @@ public class Enemy : MonoBehaviour
         {
             HurtEnemy(damageToGive);
         }
+        if(enemy.gameObject.tag == "player")
+        {
+            GameObject.Destroy(gameObject);
+        }
     }
    
     private void PlayClip(AudioClip clip)

@@ -9,6 +9,12 @@ public class GameController : MonoBehaviour
 {
     private const string INCREASE_SPEED_METHOD = "increaseSpeedPerTime";
 
+    // == Character selection ==
+    public GameObject DragonitePlayer;
+    public GameObject LugiaPlayer;
+    public GameObject LatiasPlayer;
+
+
     [SerializeField]
     public static float speed = 4f;
     [SerializeField]
@@ -42,9 +48,14 @@ public class GameController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        coinsCollected = 0;
+        tempTokenCollected = 0;
+        playerScore = 0;
         speed = 4f;
         Time.timeScale = 1.0f;// so the game isn't frozen when playing again
         InvokeRepeating(INCREASE_SPEED_METHOD, 0f, 7f);
+        highScore = PlayerPrefs.GetInt("highScore");
+        CharacterSelect();
     }
 
 
@@ -84,12 +95,12 @@ public class GameController : MonoBehaviour
         tempTokenCollected++;
         tokensCollected++;
         UpdateTokensCollected();
-        Debug.Log("Tokens collected" + tokensCollected);
+        //Debug.Log("Tokens collected" + tokensCollected);
     }
 
     private void UpdateScoreText()
     {
-        scoreText.text = playerScore.ToString("000000");
+        scoreText.text = playerScore.ToString("0000");
         scoreResultText.text = playerScore.ToString("Score: 0");
 
     }
@@ -117,16 +128,40 @@ public class GameController : MonoBehaviour
 
     public static void LoseGame()
     {
+        currentBalance = PlayerPrefs.GetInt("currentBalance");
         currentBalance += coinsCollected;
-        PlayerPrefs.SetInt("currentBalance", coinsCollected);
+        PlayerPrefs.SetInt("currentBalance", currentBalance);
         coinsCollected = 0;
 
-        if (playerScore >= PlayerPrefs.GetInt("highScore"))
+        if (playerScore >= highScore)
         {
             PlayerPrefs.SetInt("highScore", playerScore);
         }
-        Debug.Log("High score: " + highScore);
+        //Debug.Log("High score: " + highScore);
+        Debug.Log("Coin balance: " + currentBalance);
+    }
 
-        //Debug.Log("Coin balance" + currentBalance);
+    private void CharacterSelect()
+    {
+        if (PlayerPrefs.GetInt("DragniteActive") == 1)
+        {
+            //Debug.Log("Dragonite Active");
+            DragonitePlayer.SetActive(true);
+            LugiaPlayer.SetActive(false);
+            LatiasPlayer.SetActive(false);
+        }
+        if (PlayerPrefs.GetInt("LugiaActive") == 1)
+        {
+            DragonitePlayer.SetActive(false);
+            LugiaPlayer.SetActive(true);
+            LatiasPlayer.SetActive(false);
+        }
+        if (PlayerPrefs.GetInt("LatiasActive") == 1)
+        {
+            DragonitePlayer.SetActive(false);
+            LugiaPlayer.SetActive(false);
+            LatiasPlayer.SetActive(true);
+        }
+        
     }
 }
