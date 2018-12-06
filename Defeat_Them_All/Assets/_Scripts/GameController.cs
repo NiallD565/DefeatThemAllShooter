@@ -77,32 +77,28 @@ public class GameController : MonoBehaviour
     private void HandleEnemyKilledEvent(Enemy enemy)
     {
         enemiesKilled++;
-        StatsController.totalDefeated++;
+        StatsController.tempTotalDefeated++;
         playerScore += enemy.ScoreValue;
         //Debug.Log("Score: " + playerScore);
         UpdateScoreText();
         UpdateEnemiesKilled();
-        //StatsController.SetStats();
-
     }
 
     private void HandleCoinCollectedEvent(Coin coin)
     {
         coinsCollected++;
-        StatsController.totalCoinsCollected++;
+        StatsController.tempCoinsCollected++;
         UpdateCoinsCollected();
-        //StatsController.SetStats();
 
     }
 
     private void HandleTokensCollectedEvent(Token token)
     {
         tempTokenCollected++;
-        StatsController.totalTokensCollected++;
+        StatsController.tempTokensCollected++;
         tokensCollected++;
         UpdateTokensCollected();
         //Debug.Log("Tokens collected" + tokensCollected);
-        //StatsController.SetStats();
     }
 
     private void UpdateScoreText()
@@ -147,8 +143,12 @@ public class GameController : MonoBehaviour
         //Debug.Log("High score: " + highScore);
         Debug.Log("Coin balance: " + currentBalance);
         StatsController.SetStats();
+        StatsController.UpdateStats();
+        StatsController.tempTotalDefeated = 0;
+        StatsController.tempCoinsCollected = 0;
+        StatsController.tempTokensCollected = 0;
 
-    }
+}
 
     private void CharacterSelect()
     {

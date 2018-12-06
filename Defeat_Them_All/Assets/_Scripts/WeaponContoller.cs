@@ -36,7 +36,7 @@ public class WeaponContoller : MonoBehaviour {
 
     private void Update()
     {
-        if (GameController.tempTokenCollected == 3)
+        if (GameController.tempTokenCollected == 5)
         {
             //Debug.Log("Coroutine started");
             StartCoroutine(Special());

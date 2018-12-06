@@ -6,16 +6,21 @@ using UnityEngine.UI;
 
 public class StatsController : MonoBehaviour {
 
-    public static int totalDefeated;
-    public static int totalCoinsCollected;
-    public static int totalTokensCollected;
+    public static int tempTotalDefeated;
+    public static int tempCoinsCollected;
+    public static int tempTokensCollected;
+
+    private static int totalCoinsCollected;
+    private static int totalTokensCollected;
+    private static int totalDefeated;
+
 
     [SerializeField]
-    private Text totalDefeatedText; // update in private method
+    private static Text totalDefeatedText; // update in private method
     [SerializeField]
-    private Text totalCoinsCollectedText; // update in private method
+    private static Text totalCoinsCollectedText; // update in private method
     [SerializeField]
-    private Text totalTokensCollectedText; // update in private method
+    private static Text totalTokensCollectedText; // update in private method
 
     // Use this for initialization
     void Start () {
@@ -25,13 +30,17 @@ public class StatsController : MonoBehaviour {
 
     public static void SetStats()
     {
-        PlayerPrefs.SetInt("TotalDefeated", PlayerPrefs.GetInt("TotalDefeated") + totalDefeated);
-        PlayerPrefs.SetInt("TotalCoins", PlayerPrefs.GetInt("TotalCoins") + totalCoinsCollected);
-        PlayerPrefs.SetInt("TotalTokensCollected", PlayerPrefs.GetInt("TotalTokensCollected") + totalTokensCollected);
+        totalDefeated += tempTotalDefeated;
+        totalCoinsCollected += tempCoinsCollected;
+        totalTokensCollected += tempTokensCollected;
+        //tempTotalDefeated += totalDefeated;
+        PlayerPrefs.SetInt("TotalDefeated", totalDefeated);
+        PlayerPrefs.SetInt("TotalCoins", totalCoinsCollected);
+        PlayerPrefs.SetInt("TotalTokensCollected", totalTokensCollected);
 
     }
 
-    private void UpdateStats()
+    public static void UpdateStats()
     {
         totalDefeatedText.text = "Total defeated: " + PlayerPrefs.GetInt("TotalDefeated").ToString();
         totalCoinsCollectedText.text = "Total coins: " + PlayerPrefs.GetInt("TotalCoins").ToString();
@@ -39,6 +48,6 @@ public class StatsController : MonoBehaviour {
     }
     // Update is called once per frame
     void Update () {
-        UpdateStats();
-	}
+
+    }
 }
