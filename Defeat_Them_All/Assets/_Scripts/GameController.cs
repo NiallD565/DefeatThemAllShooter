@@ -143,7 +143,7 @@ public class GameController : MonoBehaviour
         //Debug.Log("High score: " + highScore);
         Debug.Log("Coin balance: " + currentBalance);
         StatsController.SetStats();
-        StatsController.UpdateStats();
+        //StatsController.UpdateStats();
         StatsController.tempTotalDefeated = 0;
         StatsController.tempCoinsCollected = 0;
         StatsController.tempTokensCollected = 0;

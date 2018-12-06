@@ -16,11 +16,11 @@ public class StatsController : MonoBehaviour {
 
 
     [SerializeField]
-    private static Text totalDefeatedText; // update in private method
+    private Text totalDefeatedText; // update in private method
     [SerializeField]
-    private static Text totalCoinsCollectedText; // update in private method
+    private Text totalCoinsCollectedText; // update in private method
     [SerializeField]
-    private static Text totalTokensCollectedText; // update in private method
+    private Text totalTokensCollectedText; // update in private method
 
     // Use this for initialization
     void Start () {
@@ -40,7 +40,7 @@ public class StatsController : MonoBehaviour {
 
     }
 
-    public static void UpdateStats()
+    public void UpdateStats()
     {
         totalDefeatedText.text = "Total defeated: " + PlayerPrefs.GetInt("TotalDefeated").ToString();
         totalCoinsCollectedText.text = "Total coins: " + PlayerPrefs.GetInt("TotalCoins").ToString();
