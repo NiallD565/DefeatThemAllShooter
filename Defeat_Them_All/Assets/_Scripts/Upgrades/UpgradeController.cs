@@ -29,13 +29,11 @@ public class UpgradeController : MonoBehaviour {
     public void Upgrade1()
     {
         // to stop increasing the damage endlessly
-        //(up1Clicked == false)
         if (PlayerPrefs.GetInt("grade1") == 0)
         {
             if (currency >= 50)
             {
                 currency -= 50;
-                //up1Clicked = true;
                 PlayerPrefs.SetInt("grade1", 1);
                 Debug.Log("Coins: " + currency);
                 Enemy.damageToGive += 5;

@@ -303,7 +303,7 @@ RectTransform:
   m_Children:
   - {fileID: 1558460616}
   m_Father: {fileID: 896234899}
-  m_RootOrder: 5
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1093,7 +1093,7 @@ RectTransform:
   m_Children:
   - {fileID: 8620122}
   m_Father: {fileID: 896234899}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
@@ -1228,10 +1228,10 @@ RectTransform:
   m_Children:
   - {fileID: 635107248}
   - {fileID: 935450956}
-  - {fileID: 828965816}
   - {fileID: 1334059335}
-  - {fileID: 1730481542}
   - {fileID: 285964960}
+  - {fileID: 828965816}
+  - {fileID: 1730481542}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1437,7 +1437,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 896234899}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -1464,7 +1464,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 97daa6bc405cf9540a853356da48e587, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1adaf6f0f2a700440a3861b3e9f0d34e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1820,7 +1820,7 @@ RectTransform:
   - {fileID: 2047295831}
   - {fileID: 1299582697}
   m_Father: {fileID: 896234899}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
