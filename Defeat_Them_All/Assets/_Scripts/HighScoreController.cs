@@ -4,9 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class HighScoreController : MonoBehaviour {
-
-
+public class HighScoreController : MonoBehaviour
+{
     private int highScore = 0;
 
     [SerializeField]
@@ -14,7 +13,7 @@ public class HighScoreController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        SetHighScore();
+        SetHighScore();// sets the highscore on the main menu
 	}
 	
 	// Update is called once per frame
@@ -23,11 +22,9 @@ public class HighScoreController : MonoBehaviour {
         
     }
 
-    void SetHighScore()
+    void SetHighScore()// sets the highscore on the main menu
     {
         highScore = PlayerPrefs.GetInt("highScore", 0);
-
         HighScoreText.text = highScore.ToString();
-
     }
 }

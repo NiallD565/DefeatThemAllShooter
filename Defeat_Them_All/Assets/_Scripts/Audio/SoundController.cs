@@ -12,7 +12,7 @@ public class SoundController : MonoBehaviour
 
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();// gets the audio controller
     }
 
     // == public methods ==
@@ -20,7 +20,7 @@ public class SoundController : MonoBehaviour
     {
         if (clip)
         {
-            audioSource.PlayOneShot(clip);
+            audioSource.PlayOneShot(clip);// plays the shoot clip for the weapons
         }
     }
 

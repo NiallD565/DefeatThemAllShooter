@@ -9,10 +9,8 @@ public class FallingBehaviour : MonoBehaviour
     private const string INCREASE_SPEED_METHOD = "increaseSpeedPerTime";
 
     [SerializeField]
-    private float speed = 4f;
-    [SerializeField]
-    public float acceleration = 5f; //Every 30 seconds, the speed will increase by this much
-
+    private float speed = 4f;// set initial speed
+    
     private Rigidbody2D rb;
 
     // Use this for initialization

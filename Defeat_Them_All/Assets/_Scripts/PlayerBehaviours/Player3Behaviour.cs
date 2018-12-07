@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class Player3Behaviour : MonoBehaviour
 {
+    // Control Latias Game Object
+    // higher movement speed and standard lives
     public GameObject GameOverPanel; //holds the user interface
 
     // constants
@@ -28,7 +30,7 @@ public class Player3Behaviour : MonoBehaviour
     [SerializeField]
     private float touchSpeed = 0.6f;
     [SerializeField]
-    private float keySpeed = 15f;
+    private float keySpeed = 15f;// greater than other players values
     [SerializeField]
     private float xMin = -2.7f;
     [SerializeField]
@@ -70,7 +72,7 @@ public class Player3Behaviour : MonoBehaviour
         }
         // Mathf.Clamp
         // work out the xValue based on the limits
-        float xValue = Mathf.Clamp(rb.position.x, xMin, xMax);
+        float xValue = Mathf.Clamp(rb.position.x, xMin, xMax);// keeps the player within a bounding box
         float yValue = Mathf.Clamp(rb.position.y, yMin, yMax);
 
         // keep position.x and position.y between two values

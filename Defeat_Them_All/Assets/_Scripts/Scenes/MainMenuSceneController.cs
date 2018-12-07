@@ -11,7 +11,7 @@ namespace Scenes
         // first step is to handle the play button
         // load the level scene when play is clicked.
         // use SceneManager - class introduced in Unity 5
-        // LoadScene, UnloadScene
+        // LoadScene, UnloadScene loaded by name
 
         // == OnClick events ==
         public void PlayOnClick()

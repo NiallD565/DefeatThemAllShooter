@@ -8,6 +8,6 @@ public class NewGame : MonoBehaviour {
 
     public void NewGameOnClick()
     {
-        SceneManager.LoadSceneAsync(SceneNames.LEVEL_NAME);
+        SceneManager.LoadSceneAsync(SceneNames.LEVEL_NAME);// reloads the scene setting all temp values back to 0
     }
 }

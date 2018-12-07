@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace Utilities
 {
+    // set scene names to be loaded without using index
     public class SceneNames
     {
         public const string LEVEL_NAME = "Game";

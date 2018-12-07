@@ -2,20 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResetPayerPrefs : MonoBehaviour {
-
-
+public class ResetPayerPrefs : MonoBehaviour
+{
+    // For developer and testing only to reset player prefs
     public void resetSettingsOnClick()
     {
         PlayerPrefs.DeleteAll();
     }
-    // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

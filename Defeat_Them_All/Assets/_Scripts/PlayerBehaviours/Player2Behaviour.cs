@@ -50,8 +50,8 @@ public class Player2Behaviour : MonoBehaviour
     {
         // get the current object
         rb = GetComponent<Rigidbody2D>();
-        soundController = SoundController.FindSoundController();
-        collisionCounter = 3;
+        soundController = SoundController.FindSoundController();// get audio clips for gameplay
+        collisionCounter = 3;// set the lives
     }
 
     // update with the physics engine
@@ -94,13 +94,13 @@ public class Player2Behaviour : MonoBehaviour
             collisionCounter--;
             if (soundController)
             {
-                soundController.PlayOneShot(crashClip);
+                soundController.PlayOneShot(crashClip);// sound notifies player of a collision
             }
             if (collisionCounter == 0) {
                 Debug.Log("GameEnded");
                 GameOverPanel.SetActive(true);
                 Time.timeScale = 0.0f;// stopping time
-                GameController.LoseGame();
+                GameController.LoseGame();// activates the game over panel
             }
             Debug.Log("Collision counter: " + collisionCounter);
 

@@ -9,56 +9,37 @@ public class PointSpawner : MonoBehaviour
 {
     private const string DECREASE_SPAWN_INTERVAL = "decrementWavetimer";
     private const string SPAWN_METHOD = "Spawn";
-    // timed wave controls
+
+    // == timed wave controls ==
     [SerializeField]
     private float waveTimer = 4.0f;
     [SerializeField]
     private float timeTillWave = 3.0f;
 
+    // == wave spawn controls ==
     private bool waveSpawn = false;
-    private int spawnedEnemy = 0;
     private float waveSpawnDec = 0.02f;
 
+    // == enemies ==
     private GameObject enemyParent;
-
     [SerializeField]
     private GameObject enemyPrefab; // type to spawn
-
-    // list for the child SpawnPoints
-    //private IList<SpawnPoint> spawnPoints;
-
-    //private Stack<SpawnPoint> spawnStack;
-
 
     // Use this for initialization
     void Start()
     {
-        // get the list of child object
-        //spawnPoints = GetComponentsInChildren<SpawnPoint>();
-        //SpawnEnemiesRepeating();
         enemyParent = ParentUtils.FindEnemyParent();
         InvokeRepeating(DECREASE_SPAWN_INTERVAL, 0f, .5f);
     }
 
-    /*private void SpawnEnemiesRepeating()
-    {
-        // shuffle my stack first (from Utilities namespace)
-        //spawnStack = ListUtility.CreateShuffledStack(spawnPoints);
-        InvokeRepeating(SPAWN_METHOD, spawnDelay, spawnInterval);
-    }
-    */
     private void SpawnEnemy()
     {
-        GameObject enemy = Instantiate(enemyPrefab, enemyParent.transform.position, transform.rotation);
-        enemy.transform.position = transform.position;
+        GameObject enemy = Instantiate(enemyPrefab, enemyParent.transform.position, transform.rotation);// spawns enemies
+        enemy.transform.position = transform.position;// initialses the transform
 
-        spawnedEnemy++;
-        waveSpawn = false;
-        //var enemy = Instantiate(enemyPrefab);
-        // set the position
-        //enemy.transform.position = spawnPoint.transform.position;
-
+        waveSpawn = false; // wait for it be set to true
     }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -90,7 +71,7 @@ public class PointSpawner : MonoBehaviour
         }
     }
 
-    private void decrementWavetimer()
+    private void decrementWavetimer()// decrements spawn by .02 seconds every 0.5 seconds
     {
         waveTimer -= waveSpawnDec;
     }

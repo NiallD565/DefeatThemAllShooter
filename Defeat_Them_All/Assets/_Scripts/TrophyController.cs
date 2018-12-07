@@ -2,18 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrophyController : MonoBehaviour {
-
+public class TrophyController : MonoBehaviour
+{
+    // == fields ==
     public GameObject Trophy1Image;
     public GameObject Trophy2Image;
     public GameObject Trophy3Image;
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
         SetTrophies();
 	}
 	 private void SetTrophies()
     {
+        // sets the trophy sprite once the total stats have been completed
+        // determined by stat controller
         if (PlayerPrefs.GetInt("TotalDefeated") > 1000)
         {
             Trophy1Image.SetActive(true);
@@ -28,9 +32,4 @@ public class TrophyController : MonoBehaviour {
 
         }
     }
-
-	// Update is called once per frame
-	void Update () {
-		
-	}
 }

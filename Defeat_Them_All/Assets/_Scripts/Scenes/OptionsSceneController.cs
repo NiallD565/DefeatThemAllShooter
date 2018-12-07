@@ -12,7 +12,7 @@ namespace Scenes
         // == OnClick events ==
         public void BackOnClick()
         {
-            // go back to main menu
+            // go back to main menu using back button
             SceneManager.LoadSceneAsync(SceneNames.MAIN_MENU);
         }
 

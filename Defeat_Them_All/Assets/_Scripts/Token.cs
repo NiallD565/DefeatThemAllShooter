@@ -5,20 +5,12 @@ using UnityEngine;
 using Utilities;
 
 public class Token : MonoBehaviour {
-
-    public GameObject BulletPrefab;
-
     // EnemyKilledEvent handlers
     public delegate void tokensCollected(Token token);
-
     // static event
     public static tokensCollected tokensCollectedEvent;
-    // Use this for initialization
-    void Start () {
-
-    }
     
-    void OnTriggerEnter2D(Collider2D collision)
+    void OnTriggerEnter2D(Collider2D collision)// ignores collision with all other object except objects with specified tags
     {
         if (collision.gameObject.tag == "player")
         {

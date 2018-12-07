@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SecialBarController : MonoBehaviour {
 
+    // == Special progress bar fields ==
     [SerializeField]
     private GameObject ProgressBar0;
     [SerializeField]
@@ -29,6 +30,7 @@ public class SecialBarController : MonoBehaviour {
 
     void SetProgressBar()
     {
+        // for each token collected tracked in the game controller the progress bar fills
         if (GameController.tempTokenCollected == 0)
         {
             ProgressBar5.SetActive(false);

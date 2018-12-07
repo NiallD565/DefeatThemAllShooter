@@ -12,32 +12,24 @@ public class Enemy : MonoBehaviour
     // for tokens
     private int randNum;
 
-    // ----------- Health system -------------
+    // === Health system ===
     [SerializeField]
     private int maxHealth = 40;
     [SerializeField]
     private int currentHealth;
-    public static int damageToGive = 10;
-
+    public static int damageToGive = 10;// incremented in upgrades
+    // === score system ===
     [SerializeField]
-    private int scoreValue = 10;
+    private int scoreValue = 10;// indidual score value for each enemy
 
-    [SerializeField]
-    private AudioClip hitClip;
-
-    [SerializeField]
-    private AudioClip crashClip;
-
+    // === collectables ===
     [SerializeField]
     private Coin coinPrefab;
-
     [SerializeField]
     public Token tokenPrefab;
 
     private GameObject coinParent;
     private GameObject tokenParent;
-
-    private SoundController soundController;
 
     // create public property
     public int ScoreValue { get { return scoreValue; } }
@@ -51,30 +43,21 @@ public class Enemy : MonoBehaviour
     // == private methods ==
     private void Start()
     {
-        soundController = SoundController.FindSoundController();
         coinParent = ParentUtils.FindCoinParent();
         tokenParent = ParentUtils.FindTokenParent();
-        SetMaxHealth();
+        SetMaxHealth();// initialize the health
     }
 
     private void OnCollisionEnter2D(Collision2D enemy)
     {
         string tagType = gameObject.tag;
-        if (enemy.gameObject.tag == "bullet")
+        if (enemy.gameObject.tag == "bullet")// inflicts damage to the enemy
         {
             HurtEnemy(damageToGive);
         }
-        if(enemy.gameObject.tag == "player")
+        if(enemy.gameObject.tag == "player")// destroy game object on collision with player
         {
             GameObject.Destroy(gameObject);
-        }
-    }
-   
-    private void PlayClip(AudioClip clip)
-    {
-        if (soundController)
-        {
-            soundController.PlayOneShot(clip);
         }
     }
 
@@ -104,12 +87,12 @@ public class Enemy : MonoBehaviour
     {
         Invoke("DestroyAfterTime", 2);
 
-        if (currentHealth <= 0)
+        if (currentHealth <= 0)// current health drops below 0 enemy is destroyed
         {
             GameObject.Destroy(gameObject);
             PublishEnemyKilledEvent();
             SpawnCoin();
-            RandomNumGen();
+            RandomNumGen();// gets random number to determine if a token will spawn
 
             if (randNum == 5)
             {
@@ -118,24 +101,24 @@ public class Enemy : MonoBehaviour
             }
         }
     }
-    private void DestroyAfterTime()
+    private void DestroyAfterTime()// destroys after time to avoid clutter
     {
         GameObject.Destroy(gameObject);
     }
 
-    public void HurtEnemy(int damageToGive)
+    public void HurtEnemy(int damageToGive)// health system managed here 
     {
         currentHealth -= damageToGive;
     }
 
-    public void SetMaxHealth()
+    public void SetMaxHealth()// initializes health
     {
         currentHealth = maxHealth;
     }
 
     private void RandomNumGen()
     {
-        randNum = UnityEngine.Random.Range(1, 10);
+        randNum = UnityEngine.Random.Range(1, 10);// generates a random number between 1 and 10 inclusive
         //Debug.Log("Random Number" + randNum);
     }
 }

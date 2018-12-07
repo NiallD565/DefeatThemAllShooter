@@ -22,6 +22,7 @@ public class PaidController : MonoBehaviour {
 
     void Paid()
     {
+        // activates the tick game object to notify the player that they have paid for a character
         if (PlayerPrefs.GetInt("LugiaPaid") == 1)
         {
             Tick2PaidImage.SetActive(true);

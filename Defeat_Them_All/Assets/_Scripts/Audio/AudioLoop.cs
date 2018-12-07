@@ -6,6 +6,6 @@ public class AudioLoop : MonoBehaviour {
 
 	private void Awake()
     {
-        DontDestroyOnLoad(transform.gameObject);
+        DontDestroyOnLoad(transform.gameObject);// keeps the sound controller from splash screen in other scenes
     }
 }

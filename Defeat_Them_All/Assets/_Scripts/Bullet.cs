@@ -5,11 +5,11 @@ using UnityEngine;
 public class Bullet : MonoBehaviour {
     void Update()
     {
-        Invoke("Destroy", 2);
+        Invoke("Destroy", 2);// destroys bullets after 2 seconds to avoid clutter in game
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy();
+        Destroy();// destroys on collision with anything
     }
     private void Destroy()
     {

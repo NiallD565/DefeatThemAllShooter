@@ -14,19 +14,22 @@ public class GameController : MonoBehaviour
     public GameObject LugiaPlayer;
     public GameObject LatiasPlayer;
 
-
+    // == falling behaviour controllers ==
     [SerializeField]
     public static float speed = 4f;
     [SerializeField]
-    public float acceleration = 1f; //Every 2 seconds, the speed will increase by this much
-
+    public float acceleration = 1f; //Every 7 seconds, the speed will increase by this much
 
     // == fields ==
     public static int playerScore = 0;
     public static int highScore = 0;
     private int enemiesKilled = 0;
+
+    // == currency ==
     public static int coinsCollected = 0;
     public static int currentBalance;
+
+    // == special ==
     private int tokensCollected = 0;
     public static int tempTokenCollected = 0;
 
@@ -48,13 +51,16 @@ public class GameController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        // resets the temperary values each run of the game
         coinsCollected = 0;
         tempTokenCollected = 0;
         playerScore = 0;
         speed = 4f;
         Time.timeScale = 1.0f;// so the game isn't frozen when playing again
+        // increasing the falling speed every 7 seconds
         InvokeRepeating(INCREASE_SPEED_METHOD, 0f, 7f);
         highScore = PlayerPrefs.GetInt("highScore");
+        // to determine which character is selected
         CharacterSelect();
     }
 
@@ -78,7 +84,7 @@ public class GameController : MonoBehaviour
     {
         enemiesKilled++;
         StatsController.tempTotalDefeated++;
-        playerScore += enemy.ScoreValue;
+        playerScore += enemy.ScoreValue;// increment player score by value in enemy script
         //Debug.Log("Score: " + playerScore);
         UpdateScoreText();
         UpdateEnemiesKilled();
@@ -87,7 +93,7 @@ public class GameController : MonoBehaviour
     private void HandleCoinCollectedEvent(Coin coin)
     {
         coinsCollected++;
-        StatsController.tempCoinsCollected++;
+        StatsController.tempCoinsCollected++;// tracks total stats
         UpdateCoinsCollected();
 
     }
@@ -95,7 +101,7 @@ public class GameController : MonoBehaviour
     private void HandleTokensCollectedEvent(Token token)
     {
         tempTokenCollected++;
-        StatsController.tempTokensCollected++;
+        StatsController.tempTokensCollected++;// tracks total stats
         tokensCollected++;
         UpdateTokensCollected();
         //Debug.Log("Tokens collected" + tokensCollected);
@@ -103,23 +109,22 @@ public class GameController : MonoBehaviour
 
     private void UpdateScoreText()
     {
-        scoreText.text = playerScore.ToString("0000");
-        scoreResultText.text = playerScore.ToString("Score: 0");
-
+        scoreText.text = playerScore.ToString("0000");// tracks score durring game
+        scoreResultText.text = playerScore.ToString("Score: 0");// outputs score on game over panel
     }
     private void UpdateEnemiesKilled()
     {
-        enemiesKilledText.text = enemiesKilled.ToString("Defeated: 0");
+        enemiesKilledText.text = enemiesKilled.ToString("Defeated: 0");// outputs total defeated to the game over panel
     }
     private void UpdateCoinsCollected()
     {
-        coinsCollectedText.text = coinsCollected.ToString("0");
-        coinsResultText.text = coinsCollected.ToString("Coins: 0");
+        coinsCollectedText.text = coinsCollected.ToString("0");// tracks coins collected during game 
+        coinsResultText.text = coinsCollected.ToString("Coins: 0");// outputs total coins collected during run
     }
     private void UpdateTokensCollected()
     {
-        tokensCollectedText.text = tokensCollected.ToString("T: 0");
-        tokensResultText.text = tokensCollected.ToString("Tokens: 0");
+        tokensCollectedText.text = tokensCollected.ToString("T: 0");// tracks tokens collected during game
+        tokensResultText.text = tokensCollected.ToString("Tokens: 0");// outputs total tokens collected during run
     }
 
     private void increaseSpeedPerTime()
@@ -131,27 +136,26 @@ public class GameController : MonoBehaviour
 
     public static void LoseGame()
     {
-        currentBalance = PlayerPrefs.GetInt("currentBalance");
-        currentBalance += coinsCollected;
-        PlayerPrefs.SetInt("currentBalance", currentBalance);
+        currentBalance = PlayerPrefs.GetInt("currentBalance");// gets old balance
+        currentBalance += coinsCollected;// adds new coins to balance
+        PlayerPrefs.SetInt("currentBalance", currentBalance);// sets current balance
         coinsCollected = 0;
 
-        if (playerScore >= highScore)
+        if (playerScore >= highScore)// checks the new score against the highscore
         {
-            PlayerPrefs.SetInt("highScore", playerScore);
+            PlayerPrefs.SetInt("highScore", playerScore);// sets the highscore to the new high score
         }
         //Debug.Log("High score: " + highScore);
         Debug.Log("Coin balance: " + currentBalance);
-        StatsController.SetStats();
-        //StatsController.UpdateStats();
+        StatsController.SetStats();// sets stats in stats in stats panel
         StatsController.tempTotalDefeated = 0;
         StatsController.tempCoinsCollected = 0;
         StatsController.tempTokensCollected = 0;
-
-}
+    }
 
     private void CharacterSelect()
     {
+        // sets which player object is selected to active
         if (PlayerPrefs.GetInt("DragniteActive") == 1)
         {
             //Debug.Log("Dragonite Active");
@@ -170,7 +174,6 @@ public class GameController : MonoBehaviour
             DragonitePlayer.SetActive(false);
             LugiaPlayer.SetActive(false);
             LatiasPlayer.SetActive(true);
-        }
-        
+        }      
     }
 }

@@ -66,7 +66,7 @@ public class PlayerBehaviour : MonoBehaviour
         // get the current body and change the velocity
         // using the horizontal movement * speed value
 
-        if (Input.touchCount > 0)//Update the Text on the screen depending on current TouchPhase, and the current direction vector
+        if (Input.touchCount > 0)// tracks the players movements
 
         {
             hMovement = Input.touches[0].deltaPosition.x;

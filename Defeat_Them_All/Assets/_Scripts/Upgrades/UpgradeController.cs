@@ -29,16 +29,16 @@ public class UpgradeController : MonoBehaviour {
     public void Upgrade1()
     {
         // to stop increasing the damage endlessly
-        if (PlayerPrefs.GetInt("grade1") == 0)
+        if (PlayerPrefs.GetInt("grade1") == 0)// controller so the upgrade can only be purchased once
         {
-            if (currency >= 50)
+            if (currency >= 50) // checks the currency to allow payment
             {
-                currency -= 50;
+                currency -= 50;// deducts cost from currency
                 PlayerPrefs.SetInt("grade1", 1);
                 Debug.Log("Coins: " + currency);
-                Enemy.damageToGive += 5;
+                Enemy.damageToGive += 2; // increases damage taken by enemies
                 Debug.Log("Damage per hit: " + Enemy.damageToGive);
-                PlayerPrefs.SetInt("currentBalance", currency);
+                PlayerPrefs.SetInt("currentBalance", currency);// sets the balance to new value
             }
             else
                 Debug.Log("Not enough coins");
@@ -48,14 +48,14 @@ public class UpgradeController : MonoBehaviour {
 
     public void Upgrade2()
     {
-        if (PlayerPrefs.GetInt("grade2") == 0)
+        if (PlayerPrefs.GetInt("grade2") == 0)// controller so the upgrade can only be purchased once
         {
-            if (currency >= 100)
+            if (currency >= 100)// checks the currency to allow payment
             {
                 PlayerPrefs.SetInt("grade2", 1);
                 currency -= 100;
-                Enemy.damageToGive += 5;
-                PlayerPrefs.SetInt("currentBalance", currency);
+                Enemy.damageToGive += 3;// increases damage taken by enemies
+                PlayerPrefs.SetInt("currentBalance", currency);// sets the balance to new value
             }
             else
                 Debug.Log("Not enough coins");
@@ -65,14 +65,14 @@ public class UpgradeController : MonoBehaviour {
 
     public void Upgrade3()
     {
-        if (PlayerPrefs.GetInt("grade3") == 0)
+        if (PlayerPrefs.GetInt("grade3") == 0)// controller so the upgrade can only be purchased once
         {
-            if (currency >= 150)
+            if (currency >= 150)// checks the currency to allow payment
             {
                 PlayerPrefs.SetInt("grade3", 1);
                 currency -= 150;
-                Enemy.damageToGive += 5;
-                PlayerPrefs.SetInt("currentBalance", currency);
+                Enemy.damageToGive += 5;// increases damage taken by enemies
+                PlayerPrefs.SetInt("currentBalance", currency);// sets the balance to new value
             }
             else
                 Debug.Log("Not enough coins");
