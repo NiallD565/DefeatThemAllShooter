@@ -3046,6 +3046,11 @@ Prefab:
       propertyPath: LatiasPlayer
       value: 
       objectReference: {fileID: 1461525394}
+    - target: {fileID: 114510532906229320, guid: 572cd9d834251624c8970e82657505d4,
+        type: 2}
+      propertyPath: livesText
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 572cd9d834251624c8970e82657505d4, type: 2}
   m_IsPrefabAsset: 0
